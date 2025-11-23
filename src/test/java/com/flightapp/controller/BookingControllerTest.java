@@ -1,6 +1,5 @@
 package com.flightapp.controller;
 
-import com.flightapp.dto.SeatsPerFlightDTO;
 import com.flightapp.model.Booking;
 import com.flightapp.request.BookingRequest;
 import com.flightapp.service.BookingService;
@@ -10,10 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -39,7 +36,7 @@ class BookingControllerTest {
 
         ResponseEntity<Booking> response = controller.book("FL123", req).block();
 
-        assertEquals(201, response.getStatusCodeValue());
+        assertEquals(201, response.getStatusCode().value());
         assertEquals("PNR123", response.getBody().getPnr());
     }
 
@@ -52,7 +49,7 @@ class BookingControllerTest {
 
         ResponseEntity<Booking> response = controller.getBooking("PNR999").block();
 
-        assertEquals(200, response.getStatusCodeValue());
+        assertEquals(200, response.getStatusCode().value());
         assertEquals("PNR999", response.getBody().getPnr());
     }
 
@@ -62,7 +59,7 @@ class BookingControllerTest {
 
         ResponseEntity<Booking> response = controller.getBooking("BAD").block();
 
-        assertEquals(404, response.getStatusCodeValue());
+        assertEquals(404, response.getStatusCode().value());
     }
 
     @Test
@@ -71,6 +68,6 @@ class BookingControllerTest {
 
         ResponseEntity<Void> response = controller.deleteBooking("PNR111").block();
 
-        assertEquals(204, response.getStatusCodeValue());
+        assertEquals(204, response.getStatusCode().value());
     }
 }
