@@ -40,7 +40,7 @@ public class FlightController {
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
-    // Aggregation: Shows remaining/booked seats for all flights.
+    // Shows remaining/booked seats for all flights ...extension of aggregation.
     @GetMapping("/stats/seats")
     public Flux<FlightSeatStatsDTO> getFlightSeatStats() {
         return service.getFlightSeatStats();
