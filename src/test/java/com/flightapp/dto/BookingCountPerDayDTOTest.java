@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookingCountPerDayDTOTest {
 
     @Test
-    void testDTO() {
-        BookingCountPerDayDTO dto = new BookingCountPerDayDTO();
-        dto.setDate("2025-11-20");
-        dto.setTotalBookings(20);
+    void testBookingCountPerDayDTO() {
+        BookingCountPerDayDTO d1 = new BookingCountPerDayDTO("2025-01-01", 50);
+        BookingCountPerDayDTO d2 = new BookingCountPerDayDTO("2025-01-01", 50);
 
-        assertEquals("2025-11-20", dto.getDate());
-        assertEquals(20, dto.getTotalBookings());
+        assertEquals(d1, d2);
+        assertEquals(d1.hashCode(), d2.hashCode());
+        assertNotNull(d1.toString());
     }
 }

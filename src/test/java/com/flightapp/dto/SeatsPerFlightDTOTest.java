@@ -6,12 +6,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class SeatsPerFlightDTOTest {
 
     @Test
-    void testDTOFields() {
+    void testSeatsPerFlightDTO() {
         SeatsPerFlightDTO dto = new SeatsPerFlightDTO();
-        dto.setFlightId("F1");
-        dto.setTotalSeatsBooked(50);
 
-        assertEquals("F1", dto.getFlightId());
-        assertEquals(50, dto.getTotalSeatsBooked());
+        dto.setFlightId("FL100");
+        dto.setTotalSeatsBooked(40);
+
+        assertEquals("FL100", dto.getFlightId());
+        assertEquals(40, dto.getTotalSeatsBooked());
     }
 }

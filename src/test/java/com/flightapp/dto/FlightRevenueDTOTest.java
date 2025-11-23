@@ -3,12 +3,12 @@ package com.flightapp.dto;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class PassengerCountDTOTest {
+class FlightRevenueDTOTest {
 
     @Test
-    void testPassengerCountDTO() {
-        PassengerCountDTO d1 = new PassengerCountDTO("F1", 120);
-        PassengerCountDTO d2 = new PassengerCountDTO("F1", 120);
+    void testFlightRevenueDTO() {
+        FlightRevenueDTO d1 = new FlightRevenueDTO("F1", 10000.0);
+        FlightRevenueDTO d2 = new FlightRevenueDTO("F1", 10000.0);
 
         assertEquals(d1, d2);
         assertEquals(d1.hashCode(), d2.hashCode());

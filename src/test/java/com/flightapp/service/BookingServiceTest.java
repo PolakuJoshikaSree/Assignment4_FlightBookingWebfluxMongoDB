@@ -1,7 +1,10 @@
 package com.flightapp.service;
 
+import com.flightapp.dto.BookingCountPerDayDTO;
+import com.flightapp.dto.PassengerCountDTO;
+import com.flightapp.dto.SeatsPerFlightDTO;
 import com.flightapp.model.Booking;
-import com.flightapp.model.Passenger;
+import com.flightapp.model.Flight;
 import com.flightapp.model.enums.Gender;
 import com.flightapp.repository.BookingRepository;
 import com.flightapp.repository.PassengerRepository;
@@ -10,16 +13,19 @@ import com.flightapp.request.PassengerRequest;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -36,59 +42,126 @@ class BookingServiceTest {
 
     @InjectMocks
     private BookingService service;
-
     @Test
     void testBook() {
-        // Mocking the flight check — booking cannot proceed without a valid flight.
-        when(flightService.getFlightById("F123"))
-                .thenReturn(Mono.just(new com.flightapp.model.Flight()));
 
-        // Mocking saved booking that MongoDB would return.
-        Booking savedBooking = new Booking();
-        savedBooking.setId("B1");
+        Flight flight = new Flight();
+        flight.setId("F100");
 
-        when(bookingRepo.save(any()))
-                .thenReturn(Mono.just(savedBooking));
+        Booking saved = new Booking();
+        saved.setId("B1");
+        saved.setPnr("ABCD1234");
+        saved.setEmail("test@mail.com");
+        saved.setBookingTime(LocalDateTime.now());
+        saved.setSeatsBooked(1);
+        saved.setFlightId("F100");
 
-        // Mocking passenger save operation (usually multiple passengers).
-        when(passengerRepo.saveAll(anyList()))
-                .thenReturn(Flux.just(new Passenger()));
+        when(flightService.getFlightById("F100"))
+                .thenReturn(Mono.just(flight));
 
-        // Creating passenger request data.
-        PassengerRequest p = new PassengerRequest();
-        p.setName("John");
-        p.setAge(22);
-        p.setGender(Gender.MALE);
-        p.setLuggageWeight(10);
+        when(bookingRepo.save(any(Booking.class)))
+                .thenReturn(Mono.just(saved));
 
-        // Complete booking request setup.
+        when(passengerRepo.saveAll(any(Iterable.class)))
+                .thenReturn(Flux.empty());
+
+        PassengerRequest pr = new PassengerRequest();
+        pr.setName("John");
+        pr.setAge(25);
+        pr.setGender(Gender.MALE);
+        pr.setLuggageWeight(10);
+
         BookingRequest req = new BookingRequest();
-        req.setEmail("abc@gmail.com");
+        req.setEmail("test@mail.com");
         req.setPrimaryPassenger("John");
         req.setSeats(1);
-        req.setPassengers(List.of(p));
+        req.setPassengers(List.of(pr));
 
-        // Calling the method under test.
-        Booking result = service.book("F123", req).block();
+        StepVerifier.create(service.book("F100", req))
+                .expectNextMatches(b -> b.getId().equals("B1"))
+                .verifyComplete();
 
-        // Making sure the booking is created.
-        assertNotNull(result);
-
-        // Verifying repository calls happened.
         verify(bookingRepo, times(1)).save(any());
-        verify(passengerRepo, times(1)).saveAll(anyList());
-        verify(flightService, times(1)).getFlightById("F123");
+        verify(passengerRepo, times(1)).saveAll(any(Iterable.class));
+        verify(flightService, times(1)).getFlightById("F100");
     }
-
     @Test
-    void testGetBooking_notFound() {
-        // If no booking exists for the PNR, repository returns empty.
-        when(bookingRepo.findByPnr("XX"))
+    void testGetBooking_NotFound() {
+
+        when(bookingRepo.findByPnr("XXX")).thenReturn(Mono.empty());
+
+        StepVerifier.create(service.getBooking("XXX"))
+                .expectComplete()
+                .verify();
+    }
+    @Test
+    void testCancelBooking() {
+
+        Booking b = new Booking();
+        b.setId("B10");
+        b.setPnr("P123");
+        b.setStatus("CONFIRMED");
+
+        when(bookingRepo.findByPnr("P123")).thenReturn(Mono.just(b));
+        when(bookingRepo.save(any(Booking.class))).thenReturn(Mono.just(b));
+
+        StepVerifier.create(service.cancelBooking("P123"))
+                .verifyComplete();
+
+        verify(bookingRepo).save(any(Booking.class));
+    }
+    @Test
+    void testDeleteBooking() {
+
+        Booking b = new Booking();
+        b.setId("B11");
+        b.setPnr("DEL123");
+
+        when(bookingRepo.findByPnr("DEL123"))
+                .thenReturn(Mono.just(b));
+
+        when(bookingRepo.delete(b))
                 .thenReturn(Mono.empty());
 
-        Booking result = service.getBooking("XX").block();
+        StepVerifier.create(service.deleteBooking("DEL123"))
+                .verifyComplete();
 
-        // Since nothing was returned — result must be null.
-        assertNull(result);
+        verify(bookingRepo).delete(b);
+    }
+    @Test
+    void testGetSeatsBooked() {
+        SeatsPerFlightDTO dto = new SeatsPerFlightDTO();
+        dto.setFlightId("F1");
+        dto.setTotalSeatsBooked(50);
+
+        when(bookingRepo.getSeatsBookedGroupedByFlight("CONFIRMED"))
+                .thenReturn(Flux.just(dto));
+
+        StepVerifier.create(service.getSeatsBooked("CONFIRMED"))
+                .expectNext(dto)
+                .verifyComplete();
+    }
+    @Test
+    void testGetDailyBookingCount() {
+        BookingCountPerDayDTO dto = new BookingCountPerDayDTO("2025-01-01", 20);
+
+        when(bookingRepo.getDailyBookingCount())
+                .thenReturn(Flux.just(dto));
+
+        StepVerifier.create(service.getDailyBookingCount())
+                .expectNext(dto)
+                .verifyComplete();
+    }
+    @Test
+    void testGetPassengerCountPerFlight() {
+
+        PassengerCountDTO dto = new PassengerCountDTO("F1", 120);
+
+        when(passengerRepo.getPassengerCountPerFlight())
+                .thenReturn(Flux.just(dto));
+
+        StepVerifier.create(service.getPassengerCountPerFlight())
+                .expectNext(dto)
+                .verifyComplete();
     }
 }

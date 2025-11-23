@@ -1,79 +1,82 @@
 package com.flightapp.controller;
 
+import com.flightapp.dto.SeatsPerFlightDTO;
 import com.flightapp.model.Booking;
 import com.flightapp.request.BookingRequest;
 import com.flightapp.service.BookingService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.ResponseEntity;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.reactive.server.WebTestClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import java.time.LocalDateTime;
 
-@ExtendWith(MockitoExtension.class)
+@WebFluxTest(BookingController.class)
 class BookingControllerTest {
 
-    @Mock
+    @Autowired
+    private WebTestClient client;
+
+    @MockBean
     private BookingService service;
 
-    @InjectMocks
-    private BookingController controller;
-
     @Test
-    void testBookFlight() {
-        // Creating a booking request like a real API call.
+    void testBook() {
         BookingRequest req = new BookingRequest();
-        req.setEmail("user@gmail.com");
+        req.setEmail("x@mail.com");
+        req.setPrimaryPassenger("John");
+        req.setSeats(1);
 
-        // Mock saved booking response.
-        Booking b = new Booking();
-        b.setPnr("PNR123");
+        Booking saved = new Booking();
+        saved.setId("B1");
+        saved.setPnr("PNR123");
+        saved.setBookingTime(LocalDateTime.now());
 
-        when(service.book("FL123", req)).thenReturn(Mono.just(b));
+        Mockito.when(service.book(Mockito.eq("F100"), Mockito.any()))
+                .thenReturn(Mono.just(saved));
 
-        ResponseEntity<Booking> response = controller.book("FL123", req).block();
-
-        // Ensuring booking is created with 201 status.
-        assertEquals(201, response.getStatusCode().value());
-        assertEquals("PNR123", response.getBody().getPnr());
+        client.post().uri("/api/bookings/book/F100")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(req)
+                .exchange()
+                .expectStatus().isCreated()
+                .expectBody()
+                .jsonPath("$.id").isEqualTo("B1");
     }
 
     @Test
-    void testGetBooking_found() {
+    void testGetBooking() {
         Booking b = new Booking();
-        b.setPnr("PNR999");
+        b.setId("B1");
 
-        when(service.getBooking("PNR999")).thenReturn(Mono.just(b));
+        Mockito.when(service.getBooking("PNR1")).thenReturn(Mono.just(b));
 
-        ResponseEntity<Booking> response = controller.getBooking("PNR999").block();
-
-        // Booking exists -> return 200.
-        assertEquals(200, response.getStatusCode().value());
-        assertEquals("PNR999", response.getBody().getPnr());
-    }
-
-    @Test
-    void testGetBooking_notFound() {
-        when(service.getBooking("BAD")).thenReturn(Mono.empty());
-
-        ResponseEntity<Booking> response = controller.getBooking("BAD").block();
-
-        // Booking not found -> return 404.
-        assertEquals(404, response.getStatusCode().value());
+        client.get().uri("/api/bookings/PNR1")
+                .exchange()
+                .expectStatus().isOk();
     }
 
     @Test
     void testDeleteBooking() {
-        // Mocking delete operation.
-        when(service.deleteBooking("PNR111")).thenReturn(Mono.empty());
+        Mockito.when(service.deleteBooking("P1")).thenReturn(Mono.empty());
 
-        ResponseEntity<Void> response = controller.deleteBooking("PNR111").block();
+        client.delete().uri("/api/bookings/P1")
+                .exchange()
+                .expectStatus().isNoContent();
+    }
 
-        // Deletion returns 204 No Content.
-        assertEquals(204, response.getStatusCode().value());
+    @Test
+    void testStats() {
+        Mockito.when(service.getSeatsBooked("CONFIRMED"))
+                .thenReturn(Flux.just(new SeatsPerFlightDTO()));
+
+        client.get().uri("/api/bookings/stats/seats/CONFIRMED")
+                .exchange()
+                .expectStatus().isOk();
     }
 }

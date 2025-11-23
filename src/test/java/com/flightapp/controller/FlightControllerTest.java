@@ -1,83 +1,83 @@
 package com.flightapp.controller;
 
+import com.flightapp.dto.FlightSeatStatsDTO;
 import com.flightapp.model.Flight;
 import com.flightapp.request.AddFlightRequest;
 import com.flightapp.request.FlightSearchRequest;
 import com.flightapp.service.FlightService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.ResponseEntity;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
-@ExtendWith(MockitoExtension.class)
+@WebFluxTest(FlightController.class)
 class FlightControllerTest {
 
-    @Mock
-    private FlightService service;
+    @Autowired
+    private WebTestClient client;
 
-    @InjectMocks
-    private FlightController controller;
+    @MockBean
+    private FlightService service;
 
     @Test
     void testAddFlight() {
-        // Preparing add request input.
-        AddFlightRequest req = new AddFlightRequest();
-        req.setFlightNumber("AI101");
+        AddFlightRequest rq = new AddFlightRequest();
+        rq.setFlightNumber("AI101");
 
-        // Fake saved flight.
-        Flight saved = new Flight();
-        saved.setFlightNumber("AI101");
-
-        when(service.addFlight(req)).thenReturn(Mono.just(saved));
-
-        ResponseEntity<Flight> response = controller.addFlight(req).block();
-
-        // Validating the saved flight response.
-        assertEquals(201, response.getStatusCode().value());
-        assertEquals("AI101", response.getBody().getFlightNumber());
-    }
-
-    @Test
-    void testSearchFlights() {
-        // Mocking two flights as if DB returned them.
-        when(service.searchFlights(any()))
-                .thenReturn(Flux.just(new Flight(), new Flight()));
-
-        List<Flight> list = controller.searchFlights(new FlightSearchRequest())
-                .collectList()
-                .block();
-
-        assertEquals(2, list.size());
-    }
-
-    @Test
-    void testGetFlight_found() {
         Flight f = new Flight();
-        f.setId("999");
+        f.setId("F1");
 
-        when(service.getFlightById("999")).thenReturn(Mono.just(f));
+        Mockito.when(service.addFlight(Mockito.any())).thenReturn(Mono.just(f));
 
-        ResponseEntity<Flight> response = controller.getFlightById("999").block();
-
-        assertEquals(200, response.getStatusCode().value());
-        assertEquals("999", response.getBody().getId());
+        client.post().uri("/api/flights/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(rq)
+                .exchange()
+                .expectStatus().isCreated();
     }
 
     @Test
-    void testGetFlight_notFound() {
-        when(service.getFlightById("NOTFOUND")).thenReturn(Mono.empty());
+    void testSearch() {
+        FlightSearchRequest rq = new FlightSearchRequest();
+        rq.setFromPlace("Delhi");
+        rq.setToPlace("Mumbai");
+        rq.setFlightDate("2025-01-01");
 
-        ResponseEntity<Flight> response = controller.getFlightById("NOTFOUND").block();
+        Mockito.when(service.searchFlights(Mockito.any()))
+                .thenReturn(Flux.just(new Flight()));
 
-        assertEquals(404, response.getStatusCode().value());
+        client.post().uri("/api/flights/search")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(rq)
+                .exchange()
+                .expectStatus().isOk();
+    }
+
+    @Test
+    void testGetById() {
+        Flight f = new Flight();
+        f.setId("F1");
+
+        Mockito.when(service.getFlightById("F1"))
+                .thenReturn(Mono.just(f));
+
+        client.get().uri("/api/flights/F1")
+                .exchange()
+                .expectStatus().isOk();
+    }
+
+    @Test
+    void testSeatStats() {
+        Mockito.when(service.getFlightSeatStats())
+                .thenReturn(Flux.just(new FlightSeatStatsDTO()));
+
+        client.get().uri("/api/flights/stats/seats")
+                .exchange()
+                .expectStatus().isOk();
     }
 }

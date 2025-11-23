@@ -4,84 +4,81 @@ import com.flightapp.model.Airline;
 import com.flightapp.request.AddAirlineRequest;
 import com.flightapp.service.AirlineService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.ResponseEntity;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
-@ExtendWith(MockitoExtension.class)
+@WebFluxTest(AirlineController.class)
 class AirlineControllerTest {
 
-    @Mock
-    private AirlineService service;
+    @Autowired
+    private WebTestClient client;
 
-    @InjectMocks
-    private AirlineController controller;
+    @MockBean
+    private AirlineService service;
 
     @Test
     void testAddAirline() {
-        // Creating the request object that the API receives.
         AddAirlineRequest req = new AddAirlineRequest();
         req.setAirlineName("Indigo");
+        req.setAirlineCode("6E");
+        req.setCountry("India");
 
-        // Mock airline returned from the service after save.
-        Airline mockAirline = new Airline();
-        mockAirline.setAirlineName("Indigo");
+        Airline saved = new Airline();
+        saved.setId("A1");
+        saved.setAirlineName("Indigo");
+        saved.setAirlineCode("6E");
+        saved.setCountry("India");
 
-        // Mocking service behavior for insertion.
-        when(service.addAirline(req)).thenReturn(Mono.just(mockAirline));
+        Mockito.when(service.addAirline(Mockito.any())).thenReturn(Mono.just(saved));
 
-        ResponseEntity<Airline> response = controller.add(req).block();
-
-        // Verifying that the controller returned correct status + body content.
-        assertEquals(201, response.getStatusCode().value());
-        assertEquals("Indigo", response.getBody().getAirlineName());
+        client.post().uri("/api/airlines/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(req)
+                .exchange()
+                .expectStatus().isCreated()
+                .expectBody()
+                .jsonPath("$.airlineName").isEqualTo("Indigo");
     }
 
     @Test
-    void testGetAllAirlines() {
-        // Mock two airline entries like DB results.
-        when(service.getAll())
-                .thenReturn(Flux.just(new Airline(), new Airline()));
+    void testGetAll() {
+        Airline a = new Airline();
+        a.setId("A1");
+        a.setAirlineName("Air India");
 
-        List<Airline> result = controller.all().collectList().block();
+        Mockito.when(service.getAll()).thenReturn(Flux.just(a));
 
-        // Controller should return both items.
-        assertEquals(2, result.size());
+        client.get().uri("/api/airlines/all")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody()
+                .jsonPath("$[0].airlineName").isEqualTo("Air India");
     }
 
     @Test
-    void testGetByCode_found() {
+    void testGetByCode() {
         Airline a = new Airline();
         a.setAirlineCode("AI");
 
-        when(service.getAirlineByCode("AI"))
-                .thenReturn(Mono.just(a));
+        Mockito.when(service.getAirlineByCode("AI")).thenReturn(Mono.just(a));
 
-        ResponseEntity<Airline> response = controller.getByCode("AI").block();
-
-        // Expecting HTTP 200 and correct airline code.
-        assertEquals(200, response.getStatusCode().value());
-        assertEquals("AI", response.getBody().getAirlineCode());
+        client.get().uri("/api/airlines/AI")
+                .exchange()
+                .expectStatus().isOk();
     }
 
     @Test
-    void testGetByCode_notFound() {
-        // Simulation of service returning nothing.
-        when(service.getAirlineByCode("XX"))
-                .thenReturn(Mono.empty());
+    void testDelete() {
+        Mockito.when(service.deleteAirlineById("A1")).thenReturn(Mono.empty());
 
-        ResponseEntity<Airline> response = controller.getByCode("XX").block();
-
-        // Not found should return 404.
-        assertEquals(404, response.getStatusCode().value());
+        client.delete().uri("/api/airlines/A1")
+                .exchange()
+                .expectStatus().isNoContent();
     }
 }

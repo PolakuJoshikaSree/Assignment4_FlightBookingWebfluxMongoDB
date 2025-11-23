@@ -12,15 +12,17 @@
     </parent>
 
     <groupId>com.flightapp</groupId>
-    <artifactId>FlightBookingApplication</artifactId>
+    <artifactId>FlightBookingApplication1</artifactId>
     <version>1.0.0</version>
     <name>FlightBookingApplication</name>
 
     <properties>
         <java.version>17</java.version>
 
-        <!-- KEEP ONLY THIS FOR SONARCLOUD -->
+        <!-- REQUIRED FOR SONARCLOUD -->
+        <sonar.projectKey>PolakuJoshikaSree_FlightBookingApplication</sonar.projectKey>
         <sonar.organization>polakujoshikasree</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
         <!-- Compiler -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -76,18 +78,25 @@
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
         </dependency>
 
+        <!-- Reactor Test -->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
 
-            <!-- Spring Boot Plugin -->
+            <!-- SPRING BOOT -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- JaCoCo Coverage -->
+            <!-- JACOCO -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -95,24 +104,28 @@
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
+                        <goals><goal>prepare-agent</goal></goals>
                     </execution>
                     <execution>
                         <id>report</id>
                         <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
+                        <goals><goal>report</goal></goals>
                     </execution>
                 </executions>
             </plugin>
 
-            <!-- Surefire Test Runner -->
+            <!-- SUREFIRE -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+
+            <!-- SONARCLOUD PLUGIN (the missing part!) -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.10.0.2594</version>
             </plugin>
 
         </plugins>

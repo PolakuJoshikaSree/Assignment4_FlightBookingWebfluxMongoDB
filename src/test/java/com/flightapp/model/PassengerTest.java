@@ -15,13 +15,17 @@ class PassengerTest {
         p.setGender("MALE");
         p.setAge(25);
         p.setMealPreference("VEG");
-        p.setLuggageWeight(12);
+        p.setLuggageWeight(10.5);
         p.setBookingId("B1");
 
         assertEquals("P1", p.getId());
         assertEquals("John", p.getPassengerName());
         assertEquals("MALE", p.getGender());
         assertEquals(25, p.getAge());
-        assertEquals(12, p.getLuggageWeight());
+        assertEquals("VEG", p.getMealPreference());
+        assertEquals(10.5, p.getLuggageWeight());
+
+        assertNotEquals(p, new Passenger());
+        assertNotNull(p.toString());
     }
 }

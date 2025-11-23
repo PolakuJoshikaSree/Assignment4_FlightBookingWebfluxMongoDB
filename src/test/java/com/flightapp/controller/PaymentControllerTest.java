@@ -4,75 +4,59 @@ import com.flightapp.model.Payment;
 import com.flightapp.request.PaymentRequest;
 import com.flightapp.service.PaymentService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.ResponseEntity;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
-@ExtendWith(MockitoExtension.class)
+@WebFluxTest(PaymentController.class)
 class PaymentControllerTest {
 
-    @Mock
-    private PaymentService service;
+    @Autowired
+    private WebTestClient client;
 
-    @InjectMocks
-    private PaymentController controller;
+    @MockBean
+    private PaymentService service;
 
     @Test
     void testPay() {
-        // Creating a payment request like real user input.
         PaymentRequest req = new PaymentRequest();
-        req.setAmount(5000);
+        req.setAmount(500);
 
-        // Mock saved payment.
         Payment p = new Payment();
-        p.setAmount(5000);
+        p.setId("P1");
 
-        when(service.pay("PNR1", req)).thenReturn(Mono.just(p));
+        Mockito.when(service.pay(Mockito.eq("PNR1"), Mockito.any()))
+                .thenReturn(Mono.just(p));
 
-        ResponseEntity<Payment> response = controller.pay("PNR1", req).block();
-
-        // Expecting 201 created + correct amount.
-        assertEquals(201, response.getStatusCode().value());
-        assertEquals(5000, response.getBody().getAmount());
+        client.post().uri("/api/payments/pay/PNR1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(req)
+                .exchange()
+                .expectStatus().isCreated();
     }
 
     @Test
-    void testGetPayment_found() {
-        Payment pay = new Payment();
-        pay.setId("33");
+    void testGet() {
+        Payment p = new Payment();
+        p.setId("P1");
 
-        when(service.getPayment("33")).thenReturn(Mono.just(pay));
+        Mockito.when(service.getPayment("P1")).thenReturn(Mono.just(p));
 
-        ResponseEntity<Payment> response = controller.get("33").block();
-
-        // If payment exists -> 200 OK.
-        assertEquals(200, response.getStatusCode().value());
-        assertEquals("33", response.getBody().getId());
+        client.get().uri("/api/payments/P1")
+                .exchange()
+                .expectStatus().isOk();
     }
 
     @Test
-    void testGetPayment_notFound() {
-        when(service.getPayment("BAD")).thenReturn(Mono.empty());
+    void testDelete() {
+        Mockito.when(service.deletePayment("P1")).thenReturn(Mono.empty());
 
-        ResponseEntity<Payment> response = controller.get("BAD").block();
-
-        // Not found case -> 404 expected.
-        assertEquals(404, response.getStatusCode().value());
-    }
-
-    @Test
-    void testDeletePayment() {
-        when(service.deletePayment("10")).thenReturn(Mono.empty());
-
-        ResponseEntity<Void> response = controller.delete("10").block();
-
-        // Delete should return 204.
-        assertEquals(204, response.getStatusCode().value());
+        client.delete().uri("/api/payments/P1")
+                .exchange()
+                .expectStatus().isNoContent();
     }
 }

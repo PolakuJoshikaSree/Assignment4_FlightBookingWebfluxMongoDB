@@ -1,6 +1,7 @@
 package com.flightapp.model;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AirlineTest {
@@ -8,14 +9,17 @@ class AirlineTest {
     @Test
     void testAirlineModel() {
         Airline a = new Airline();
-        a.setId("1");
-        a.setAirlineName("Indigo");
-        a.setAirlineCode("6E");
+        a.setId("A1");
+        a.setAirlineName("Air India");
+        a.setAirlineCode("AI");
         a.setCountry("India");
 
-        assertEquals("1", a.getId());
-        assertEquals("Indigo", a.getAirlineName());
-        assertEquals("6E", a.getAirlineCode());
+        assertEquals("A1", a.getId());
+        assertEquals("Air India", a.getAirlineName());
+        assertEquals("AI", a.getAirlineCode());
         assertEquals("India", a.getCountry());
+
+        assertNotEquals(a, new Airline()); // avoids same-instance comparison
+        assertNotNull(a.toString());
     }
 }

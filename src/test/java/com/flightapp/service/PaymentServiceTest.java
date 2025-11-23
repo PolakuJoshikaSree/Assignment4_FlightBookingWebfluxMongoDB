@@ -4,52 +4,67 @@ import com.flightapp.model.Booking;
 import com.flightapp.model.Payment;
 import com.flightapp.repository.PaymentRepository;
 import com.flightapp.request.PaymentRequest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
 class PaymentServiceTest {
 
-    @Mock
     private BookingService bookingService;
-
-    @Mock
-    private PaymentRepository paymentRepo;
-
-    @InjectMocks
+    private PaymentRepository repo;
     private PaymentService service;
+
+    @BeforeEach
+    void setUp() {
+        bookingService = mock(BookingService.class);
+        repo = mock(PaymentRepository.class);
+        service = new PaymentService(bookingService, repo);
+    }
 
     @Test
     void testPay() {
-        // Booking must exist before payment is processed.
-        Booking booking = new Booking();
-        booking.setId("B1");
+        Booking b = new Booking(); b.setId("B1");
+        Payment p = new Payment(); p.setAmount(500);
 
-        when(bookingService.getBooking("PNR123"))
-                .thenReturn(Mono.just(booking));
+        when(bookingService.getBooking("PNR1")).thenReturn(Mono.just(b));
+        when(repo.save(any())).thenReturn(Mono.just(p));
 
-        // Mocking what MongoDB would return after saving.
-        when(paymentRepo.save(any(Payment.class)))
-                .thenReturn(Mono.just(new Payment()));
-
-        // Creating a simple payment request.
         PaymentRequest req = new PaymentRequest();
-        req.setAmount(5000);
         req.setPaymentMode("UPI");
+        req.setAmount(500);
 
-        // Calling the method to test.
-        Payment result = service.pay("PNR123", req).block();
+        StepVerifier.create(service.pay("PNR1", req))
+                .expectNext(p)
+                .verifyComplete();
+    }
 
-        // Should not be null if save worked.
-        assertNotNull(result);
+    @Test
+    void testPay_BookingNotFound() {
+        when(bookingService.getBooking("X")).thenReturn(Mono.empty());
 
-        verify(paymentRepo, times(1)).save(any(Payment.class));
+        StepVerifier.create(service.pay("X", new PaymentRequest()))
+                .verifyComplete();
+    }
+
+    @Test
+    void testGetPayment() {
+        Payment p = new Payment(); p.setId("P1");
+
+        when(repo.findById("P1")).thenReturn(Mono.just(p));
+
+        StepVerifier.create(service.getPayment("P1"))
+                .expectNext(p)
+                .verifyComplete();
+    }
+
+    @Test
+    void testDeletePayment() {
+        when(repo.deleteById("P5")).thenReturn(Mono.empty());
+
+        StepVerifier.create(service.deletePayment("P5"))
+                .verifyComplete();
     }
 }

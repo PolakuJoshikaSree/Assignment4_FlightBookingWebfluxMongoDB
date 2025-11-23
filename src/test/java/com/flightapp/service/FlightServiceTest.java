@@ -6,79 +6,142 @@ import com.flightapp.repository.AirlineRepository;
 import com.flightapp.repository.FlightRepository;
 import com.flightapp.request.AddFlightRequest;
 import com.flightapp.request.FlightSearchRequest;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
-@ExtendWith(MockitoExtension.class)
 class FlightServiceTest {
 
-    @Mock
-    private FlightRepository flightRepo;
+    @Mock FlightRepository repo;
+    @Mock AirlineRepository airlineRepo;
 
-    @Mock
-    private AirlineRepository airlineRepo;
+    @InjectMocks FlightService service;
 
-    @InjectMocks
-    private FlightService service;
+    AddFlightRequest req;
 
-    @Test
-    void testAddFlight() {
-        // Preparing a complete AddFlightRequest object.
-        AddFlightRequest req = new AddFlightRequest();
-        req.setAirlineCode("AI101");
-        req.setFlightNumber("AI-10");
+    @BeforeEach
+    void setup() {
+        MockitoAnnotations.openMocks(this);
+
+        req = new AddFlightRequest();
+        req.setFlightNumber("AI101");
         req.setFromPlace("Delhi");
         req.setToPlace("Mumbai");
-        req.setFlightDate("2025-12-01");
+        req.setFlightDate("2025-01-01");
         req.setDepartureTime("10:00");
         req.setArrivalTime("12:00");
         req.setTotalSeats(180);
-        req.setPrice(5000.0);
+        req.setPrice(4500.0);
         req.setBaggageLimitKg(15);
+        req.setAirlineCode("AI");
+    }
 
-        // Mocking airline verification before saving a flight.
+    @Test
+    void testAddFlight() {
         Airline airline = new Airline();
-        airline.setAirlineCode("AI101");
+        airline.setAirlineCode("AI");
 
-        when(airlineRepo.findByAirlineCode("AI101"))
+        Mockito.when(airlineRepo.findByAirlineCode("AI"))
                 .thenReturn(Mono.just(airline));
 
-        // Mock saving of flight.
-        when(flightRepo.save(any(Flight.class)))
-                .thenReturn(Mono.just(new Flight()));
+        Mockito.when(repo.save(Mockito.any()))
+                .thenAnswer(inv -> Mono.just(inv.getArgument(0)));
 
-        Flight result = service.addFlight(req).block();
+        StepVerifier.create(service.addFlight(req))
+                .expectNextMatches(f -> f.getAirlineCode().equals("AI"))
+                .verifyComplete();
+    }
 
-        // Just checking that something is returned.
-        assertNotNull(result);
+    @Test
+    void testAddFlight_NoAirlineFound() {
+        Mockito.when(airlineRepo.findByAirlineCode("AI"))
+                .thenReturn(Mono.empty());
+
+        StepVerifier.create(service.addFlight(req))
+                .verifyComplete();
     }
 
     @Test
     void testSearchFlights() {
-        // Creating a request as the UI would send it.
-        FlightSearchRequest req = new FlightSearchRequest();
-        req.setFromPlace("Delhi");
-        req.setToPlace("Mumbai");
-        req.setFlightDate("2025-12-01");
+        Flight f = new Flight();
 
-        // Mocking empty flights for that route.
-        when(flightRepo.findByFromPlaceAndToPlaceAndFlightDate(
-                "Delhi", "Mumbai", LocalDate.parse("2025-12-01")
-        )).thenReturn(Flux.empty());
+        Mockito.when(repo.findByFromPlaceAndToPlaceAndFlightDate(
+                "Delhi", "Mumbai", LocalDate.parse("2025-01-01"))
+        ).thenReturn(Flux.just(f));
 
-        var result = service.searchFlights(req).collectList().block();
+        FlightSearchRequest s = new FlightSearchRequest();
+        s.setFromPlace("Delhi");
+        s.setToPlace("Mumbai");
+        s.setFlightDate("2025-01-01");
 
-        // Since mocked empty — expecting 0 results.
-        assertEquals(0, result.size());
+        StepVerifier.create(service.searchFlights(s))
+                .expectNext(f)
+                .verifyComplete();
+    }
+
+    @Test
+    void testGetFlightById() {
+        Flight f = new Flight();
+
+        Mockito.when(repo.findById("F1")).thenReturn(Mono.just(f));
+
+        StepVerifier.create(service.getFlightById("F1"))
+                .expectNext(f)
+                .verifyComplete();
+    }
+
+    @Test
+    void testUpdateFlight() {
+        Flight existing = new Flight();
+        existing.setId("F1");
+
+        Mockito.when(repo.findById("F1")).thenReturn(Mono.just(existing));
+        Mockito.when(repo.save(existing)).thenReturn(Mono.just(existing));
+
+        StepVerifier.create(service.updateFlight("F1", req))
+                .expectNext(existing)
+                .verifyComplete();
+    }
+
+    @Test
+    void testUpdateFlight_NotFound() {
+        Mockito.when(repo.findById("X")).thenReturn(Mono.empty());
+
+        StepVerifier.create(service.updateFlight("X", req))
+                .verifyComplete();
+    }
+
+    @Test
+    void testDeleteFlight() {
+        Mockito.when(repo.deleteById("F1")).thenReturn(Mono.empty());
+
+        StepVerifier.create(service.deleteFlight("F1"))
+                .verifyComplete();
+    }
+
+    @Test
+    void testUpdateSeatCount() {
+        Flight flight = new Flight();
+        flight.setBookedSeats(10);
+
+        Mockito.when(repo.findById("F1")).thenReturn(Mono.just(flight));
+        Mockito.when(repo.save(Mockito.any())).thenReturn(Mono.just(flight));
+
+        StepVerifier.create(service.updateSeatCount("F1", 5))
+                .verifyComplete();
+    }
+
+    @Test
+    void testUpdateSeatCount_NotFound() {
+        Mockito.when(repo.findById("X")).thenReturn(Mono.empty());
+
+        StepVerifier.create(service.updateSeatCount("X", 5))
+                .verifyComplete();
     }
 }
