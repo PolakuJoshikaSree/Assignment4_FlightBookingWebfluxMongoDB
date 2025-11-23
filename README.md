@@ -29,7 +29,7 @@ This Excel file contains **all REST API endpoints** used in the Flight Booking W
 ## 🧱 UML Diagram
 
 ### **Complete Class Diagram**
-👉 **[Download UML Diagram (UML-WebfluxMongo.jpeg)](./UML-WebfluxMongo.jpeg)**  
+👉 **[Download UML Diagram (UML-WebfluxMongo.jpeg)](./UML_Flightbooking_ClassDiagram.jpeg)**  
 
 This UML diagram represents the overall architecture:
 
