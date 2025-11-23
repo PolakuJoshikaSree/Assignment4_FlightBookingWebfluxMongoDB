@@ -14,9 +14,13 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class PaymentService {
 
+    // Used to fetch booking details before creating a payment.
     private final BookingService bookingService;
+
+    // Repository to store payment records.
     private final PaymentRepository repo;
 
+    // Creates a payment entry for a specific PNR.
     public Mono<Payment> pay(String pnr, PaymentRequest req) {
         return bookingService.getBooking(pnr)
                 .flatMap(booking -> {
@@ -30,12 +34,13 @@ public class PaymentService {
                 });
     }
 
+    // Fetches payment details using its ID.
     public Mono<Payment> getPayment(String id) {
         return repo.findById(id);
     }
 
+    // Deletes payment from the system.
     public Mono<Void> deletePayment(String id) {
         return repo.deleteById(id);
     }
-
 }
