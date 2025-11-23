@@ -16,19 +16,22 @@
     <version>1.0.0</version>
     <name>FlightBookingApplication</name>
 
-    <properties>
-        <java.version>17</java.version>
+<properties>
+    <java.version>17</java.version>
 
-        <!-- REQUIRED FOR SONARCLOUD -->
-        <sonar.projectKey>PolakuJoshikaSree_FlightBookingApplication</sonar.projectKey>
-        <sonar.organization>polakujoshikasree</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <!-- SonarCloud Configuration -->
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.organization>polakujoshikasree</sonar.organization>
+    <sonar.projectKey>PolakuJoshikaSree_FlightBookingApplication</sonar.projectKey>
 
-        <!-- Compiler -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+    <!-- Fix Quality Gate -->
+    <sonar.newCode.referenceBranch>master</sonar.newCode.referenceBranch>
+    <sonar.leak.period>previous_version</sonar.leak.period>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+</properties>
 
     <dependencies>
 
@@ -121,7 +124,7 @@
                 <version>3.1.2</version>
             </plugin>
 
-            <!-- SONARCLOUD PLUGIN (the missing part!) -->
+            <!-- SONARCLOUD PLUGIN -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>

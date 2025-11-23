@@ -1,17 +1,40 @@
 package com.flightapp.dto;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookingCountPerDayDTOTest {
 
     @Test
-    void testBookingCountPerDayDTO() {
-        BookingCountPerDayDTO d1 = new BookingCountPerDayDTO("2025-01-01", 50);
-        BookingCountPerDayDTO d2 = new BookingCountPerDayDTO("2025-01-01", 50);
+    void testAllArgsConstructorAndGetters() {
+        BookingCountPerDayDTO dto = new BookingCountPerDayDTO(
+                "2025-12-01",
+                50
+        );
 
-        assertEquals(d1, d2);
-        assertEquals(d1.hashCode(), d2.hashCode());
-        assertNotNull(d1.toString());
+        assertEquals("2025-12-01", dto.getDate());
+        assertEquals(50, dto.getTotalBookings());
+    }
+
+    @Test
+    void testNoArgsConstructorSettersEqualsHashCodeToString() {
+        BookingCountPerDayDTO dto1 = new BookingCountPerDayDTO();
+        dto1.setDate("2025-12-01");
+        dto1.setTotalBookings(50);
+
+        BookingCountPerDayDTO dto2 = new BookingCountPerDayDTO();
+        dto2.setDate("2025-12-01");
+        dto2.setTotalBookings(50);
+
+        BookingCountPerDayDTO dto3 = new BookingCountPerDayDTO();
+        dto3.setDate("2025-12-02");
+
+        assertEquals(dto1, dto2);
+        assertEquals(dto1.hashCode(), dto2.hashCode());
+        assertNotEquals(dto1, dto3);
+        assertNotEquals(dto1, null);
+        assertNotEquals(dto1, new Object());
+        assertNotNull(dto1.toString());
     }
 }
