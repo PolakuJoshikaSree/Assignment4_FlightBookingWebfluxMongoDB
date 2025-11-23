@@ -12,24 +12,32 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 @RequestMapping("/api/payments")
 public class PaymentController {
+
+    // PaymentService manages payment processing and database storage.
     private final PaymentService service;
 
+    // Records a payment for a given booking ,identified by PNR.
     @PostMapping("/pay/{pnr}")
     public Mono<ResponseEntity<Payment>> pay(
             @PathVariable String pnr,
             @RequestBody PaymentRequest req) {
+
         return service.pay(pnr, req)
                 .map(saved -> ResponseEntity.status(201).body(saved));
     }
+
+    // Fetches payment details using the payment ID stored in MongoDB.
     @GetMapping("/{id}")
     public Mono<ResponseEntity<Payment>> get(@PathVariable String id) {
         return service.getPayment(id)
                 .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.notFound().build()); 
+                .defaultIfEmpty(ResponseEntity.notFound().build());
     }
+
+    // Deletes a payment record completely.
     @DeleteMapping("/{id}")
     public Mono<ResponseEntity<Void>> delete(@PathVariable String id) {
         return service.deletePayment(id)
-                .then(Mono.just(ResponseEntity.noContent().build())); 
+                .then(Mono.just(ResponseEntity.noContent().build()));
     }
 }
