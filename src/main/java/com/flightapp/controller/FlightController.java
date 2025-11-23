@@ -15,25 +15,34 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 @RequestMapping("/api/flights")
 public class FlightController {
+
+    // Handles flight operations such as adding, searching, and statistics
     private final FlightService service;
+
+    // Adds a new flight after validating airline code availability.
     @PostMapping("/add")
     public Mono<ResponseEntity<Flight>> addFlight(@RequestBody AddFlightRequest req) {
         return service.addFlight(req)
-                .map(saved -> ResponseEntity.status(201).body(saved)); 
+                .map(saved -> ResponseEntity.status(201).body(saved));
     }
+
+    // Searches flights based on source, destination, and date.
     @PostMapping("/search")
     public Flux<Flight> searchFlights(@RequestBody FlightSearchRequest req) {
         return service.searchFlights(req);
     }
+
+    // Gets full details of a single flight using its ID.
     @GetMapping("/{id}")
     public Mono<ResponseEntity<Flight>> getFlightById(@PathVariable String id) {
         return service.getFlightById(id)
                 .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.notFound().build()); 
+                .defaultIfEmpty(ResponseEntity.notFound().build());
     }
+
+    // Aggregation: Shows remaining/booked seats for all flights.
     @GetMapping("/stats/seats")
     public Flux<FlightSeatStatsDTO> getFlightSeatStats() {
         return service.getFlightSeatStats();
     }
-
 }
