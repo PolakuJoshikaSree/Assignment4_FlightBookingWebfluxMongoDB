@@ -1,0 +1,16 @@
+
+:com.flightapp.model.Seat#getSeatNumber()Ljava/lang/String;~
+t/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/model/Seat.java ("1*©
+1   (t
+r
+   (
+%0java.lang.String"__id*H
+
+__unknown_file (,**
+com.flightapp.model.Seat"
+
+seatNumber"$
+   (
+
+%0java.lang.StringB
+com.flightapp.model.SeatH

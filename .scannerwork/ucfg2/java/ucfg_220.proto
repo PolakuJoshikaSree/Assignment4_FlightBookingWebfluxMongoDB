@@ -1,0 +1,15 @@
+
+Bcom.flightapp.model.Flight#getDepartureTime()Ljava/time/LocalTime;€
+v/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/model/Flight.javah h(%"1*´
+1i i(|
+z
+i i(
+%0java.time.LocalTime"__id*M
+
+__unknown_file (1*/
+com.flightapp.model.Flight"
+departureTime"'
+i i(
+
+%0java.time.LocalTimeB
+com.flightapp.model.FlightH

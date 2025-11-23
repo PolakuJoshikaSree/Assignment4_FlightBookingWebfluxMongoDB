@@ -1,0 +1,634 @@
+
+1.0flightbookingJavaFrontend"1763629648513*java2.BÌ
+4
+/src/main/java/com/flightapp/dto/BookingDTO.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.dto7
+!
+com.flightapp.dto.BookingDTO9
+
+class10
+
+access11
+
+public12
+
+simple-name13
+
+
+BookingDTO14
+%
+com.flightapp.dto.BookingDTO.id16
+
+field17
+
+private18
+
+id19
+&
+ com.flightapp.dto.BookingDTO.pnr21
+	
+pnr22
+(
+"com.flightapp.dto.BookingDTO.email24
+
+email25
+3
+-com.flightapp.dto.BookingDTO.primaryPassenger27
+
+primaryPassenger28
+.
+(com.flightapp.dto.BookingDTO.seatsBooked30
+
+seatsBooked31
+.
+(com.flightapp.dto.BookingDTO.bookingTime33
+
+bookingTime34
+)
+#com.flightapp.dto.BookingDTO.status36
+
+status37
++
+%com.flightapp.dto.BookingDTO.flightId39
+
+flightId40
+-
+'com.flightapp.dto.BookingDTO.passengers42
+
+
+passengers43
+$
+com.flightapp.dto.PassengerDTO45
+
+unknown46
+
+
+uses47
+,
+&com.flightapp.dto.BookingDTO#<init>()V49
+
+method50
+
+calls51
+:
+4com.flightapp.dto.BookingDTO#getId()Ljava/lang/Long;53
+
+getId54
+
+
+references55
+;
+5com.flightapp.dto.BookingDTO#setId(Ljava/lang/Long;)V57
+
+setId58
+=
+7com.flightapp.dto.BookingDTO#getPnr()Ljava/lang/String;60
+
+getPnr61
+>
+8com.flightapp.dto.BookingDTO#setPnr(Ljava/lang/String;)V63
+
+setPnr64
+?
+9com.flightapp.dto.BookingDTO#getEmail()Ljava/lang/String;66
+
+getEmail67
+@
+:com.flightapp.dto.BookingDTO#setEmail(Ljava/lang/String;)V69
+
+setEmail70
+J
+Dcom.flightapp.dto.BookingDTO#getPrimaryPassenger()Ljava/lang/String;72
+
+getPrimaryPassenger73
+K
+Ecom.flightapp.dto.BookingDTO#setPrimaryPassenger(Ljava/lang/String;)V75
+
+setPrimaryPassenger76
+4
+.com.flightapp.dto.BookingDTO#getSeatsBooked()I78
+
+getSeatsBooked79
+5
+/com.flightapp.dto.BookingDTO#setSeatsBooked(I)V81
+
+setSeatsBooked82
+L
+Fcom.flightapp.dto.BookingDTO#getBookingTime()Ljava/time/LocalDateTime;84
+
+getBookingTime85
+M
+Gcom.flightapp.dto.BookingDTO#setBookingTime(Ljava/time/LocalDateTime;)V87
+
+setBookingTime88
+@
+:com.flightapp.dto.BookingDTO#getStatus()Ljava/lang/String;90
+
+	getStatus91
+A
+;com.flightapp.dto.BookingDTO#setStatus(Ljava/lang/String;)V93
+
+	setStatus94
+@
+:com.flightapp.dto.BookingDTO#getFlightId()Ljava/lang/Long;96
+
+getFlightId97
+A
+;com.flightapp.dto.BookingDTO#setFlightId(Ljava/lang/Long;)V99
+
+setFlightId100
+C
+<com.flightapp.dto.BookingDTO#getPassengers()Ljava/util/List;102
+
+getPassengers103
+D
+=com.flightapp.dto.BookingDTO#setPassengers(Ljava/util/List;)V105
+
+setPassengers106J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576j®
+A
+23;
+232417 *
+1
+ 
+(28:5B
+
+
+11
+18
+
+
+13
+25
+A
+29;
+293017 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+31
+A
+86;
+868750 *
+1@ @(28:5B
+
+
+11
+12
+
+
+13
+88
+A
+80;
+808150 *
+18 8(28:5B
+
+
+11
+12
+
+
+13
+82
+A
+83;
+838450 *
+1< <(28:5B
+
+
+11
+12
+
+
+13
+85
+A
+74;
+747550 *
+10 0(28:5B
+
+
+11
+12
+
+
+13
+76
+E
+101>
+10110250 *
+1T T(28:5B
+
+
+11
+12
+
+13
+103
+A
+52;
+525350 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+54
+A
+56;
+565750 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+58
+A
+38;
+383917 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+40
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+A
+48;
+484950 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+14
+B
+98<
+989950 *
+1P P(28:5B
+
+
+11
+12
+
+13
+100
+A
+68;
+686950 *
+1( ((28:5B
+
+
+11
+12
+
+
+13
+70
+A
+26;
+262717 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+28
+A
+89;
+899050 *
+1D D(28:5B
+
+
+11
+12
+
+
+13
+91
+A
+59;
+596050 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+61
+A
+41;
+414217 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+43
+A
+77;
+777850 *
+14 4(28:5B
+
+
+11
+12
+
+
+13
+79
+A
+65;
+656650 *
+1$ $(28:5B
+
+
+11
+12
+
+
+13
+67
+A
+62;
+626350 *
+1   (28:5B
+
+
+11
+12
+
+
+13
+64
+A
+92;
+929350 *
+1H H(28:5B
+
+
+11
+12
+
+
+13
+94
+A
+15;
+151617 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+19
+A
+71;
+717250 *
+1, ,(28:5B
+
+
+11
+12
+
+
+13
+73
+A
+20;
+202117 *
+1	 	(28:5B
+
+
+11
+18
+
+
+13
+22
+
+44
+444546
+A
+32;
+323317 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+34
+E
+104>
+10410550 *
+1X X(28:5B
+
+
+11
+12
+
+13
+106
+A
+35;
+353617 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+37
+A
+95;
+959650 *
+1L L(28:5B
+
+
+11
+12
+
+
+13
+97r«
+
+414447*
+1 (
+
+48851*
+1 (
+
+521555*
+1 (
+
+56847*
+1	 (
+
+56855*
+1	 (
+
+561555*
+1 (
+
+592055*
+1 (
+
+62847*
+1!	 !(
+
+62855*
+1!	 !(
+
+622055*
+1! !(
+
+652355*
+1% %(
+
+68847*
+1)	 )(
+
+68855*
+1)	 )(
+
+682355*
+1) )(
+
+712655*
+1- -( 
+
+74847*
+11	 1(
+
+74855*
+11	 1(
+
+742655*
+11 1(
+
+772955*
+15 5(
+
+80847*
+19	 9(
+
+80855*
+19	 9(
+
+802955*
+19 9(
+
+833255*
+1= =(
+
+86847*
+1A	 A(
+
+86855*
+1A	 A(
+
+863255*
+1A A(
+
+893555*
+1E E(
+
+92847*
+1I	 I(
+
+92855*
+1I	 I(
+
+923555*
+1I I(
+
+953855*
+1M M(
+
+98847*
+1Q	 Q(
+
+98855*
+1Q	 Q(
+
+983855*
+1Q Q(
+
+1014447*
+1T T(
+
+1014155*
+1U U(
+
+1044447*
+1X$ X(0
+
+104847*
+1Y	 Y(
+
+104855*
+1Y	 Y(
+
+1044155*
+1Y Y(

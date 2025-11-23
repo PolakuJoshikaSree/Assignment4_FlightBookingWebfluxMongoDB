@@ -1,0 +1,15 @@
+
+Dcom.flightapp.dto.BookingDTO#getPrimaryPassenger()Ljava/lang/String;‚
+x/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/dto/BookingDTO.java, ,(%"1*³
+1- -(~
+|
+- -(
+%0java.lang.String"__id*R
+
+__unknown_file (6*4
+com.flightapp.dto.BookingDTO"
+primaryPassenger"$
+- -( 
+
+%0java.lang.StringB 
+com.flightapp.dto.BookingDTOH

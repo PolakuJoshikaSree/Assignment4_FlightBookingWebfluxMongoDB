@@ -1,0 +1,757 @@
+
+1.0flightbookingJavaFrontend"1763629648328*java2.B›
+>
+9src/main/java/com/flightapp/request/AddFlightRequest.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.request7
++
+&com.flightapp.request.AddFlightRequest9
+
+class10
+
+access11
+
+public12
+
+simple-name13
+
+AddFlightRequest14
+9
+3com.flightapp.request.AddFlightRequest.flightNumber16
+
+field17
+
+private18
+
+flightNumber19
+
+NotBlank21
+
+unknown22
+
+annotated by23
+&
+ Recovered#typeBindingLNotBlank;025
+
+
+uses26
+6
+0com.flightapp.request.AddFlightRequest.fromPlace28
+
+	fromPlace29
+4
+.com.flightapp.request.AddFlightRequest.toPlace31
+
+toPlace32
+7
+1com.flightapp.request.AddFlightRequest.flightDate34
+
+
+flightDate35
+:
+4com.flightapp.request.AddFlightRequest.departureTime37
+
+departureTime38
+8
+2com.flightapp.request.AddFlightRequest.arrivalTime40
+
+arrivalTime41
+7
+1com.flightapp.request.AddFlightRequest.totalSeats43
+
+
+totalSeats44
+
+NotNull46
+%
+Recovered#typeBindingLNotNull;048
+2
+,com.flightapp.request.AddFlightRequest.price50
+
+price51
+;
+5com.flightapp.request.AddFlightRequest.baggageLimitKg53
+
+baggageLimitKg54
+8
+2com.flightapp.request.AddFlightRequest.airlineCode56
+
+airlineCode57
+6
+0com.flightapp.request.AddFlightRequest#<init>()V59
+
+method60
+
+calls61
+P
+Jcom.flightapp.request.AddFlightRequest#getFlightNumber()Ljava/lang/String;63
+
+getFlightNumber64
+
+
+references65
+Q
+Kcom.flightapp.request.AddFlightRequest#setFlightNumber(Ljava/lang/String;)V67
+
+setFlightNumber68
+M
+Gcom.flightapp.request.AddFlightRequest#getFromPlace()Ljava/lang/String;70
+
+getFromPlace71
+N
+Hcom.flightapp.request.AddFlightRequest#setFromPlace(Ljava/lang/String;)V73
+
+setFromPlace74
+K
+Ecom.flightapp.request.AddFlightRequest#getToPlace()Ljava/lang/String;76
+
+
+getToPlace77
+L
+Fcom.flightapp.request.AddFlightRequest#setToPlace(Ljava/lang/String;)V79
+
+
+setToPlace80
+N
+Hcom.flightapp.request.AddFlightRequest#getFlightDate()Ljava/lang/String;82
+
+getFlightDate83
+O
+Icom.flightapp.request.AddFlightRequest#setFlightDate(Ljava/lang/String;)V85
+
+setFlightDate86
+Q
+Kcom.flightapp.request.AddFlightRequest#getDepartureTime()Ljava/lang/String;88
+
+getDepartureTime89
+R
+Lcom.flightapp.request.AddFlightRequest#setDepartureTime(Ljava/lang/String;)V91
+
+setDepartureTime92
+O
+Icom.flightapp.request.AddFlightRequest#getArrivalTime()Ljava/lang/String;94
+
+getArrivalTime95
+P
+Jcom.flightapp.request.AddFlightRequest#setArrivalTime(Ljava/lang/String;)V97
+
+setArrivalTime98
+P
+Icom.flightapp.request.AddFlightRequest#getTotalSeats()Ljava/lang/Integer;100
+
+getTotalSeats101
+Q
+Jcom.flightapp.request.AddFlightRequest#setTotalSeats(Ljava/lang/Integer;)V103
+
+setTotalSeats104
+J
+Ccom.flightapp.request.AddFlightRequest#getPrice()Ljava/lang/Double;106
+
+getPrice107
+K
+Dcom.flightapp.request.AddFlightRequest#setPrice(Ljava/lang/Double;)V109
+
+setPrice110
+T
+Mcom.flightapp.request.AddFlightRequest#getBaggageLimitKg()Ljava/lang/Integer;112
+
+getBaggageLimitKg113
+U
+Ncom.flightapp.request.AddFlightRequest#setBaggageLimitKg(Ljava/lang/Integer;)V115
+
+setBaggageLimitKg116
+P
+Icom.flightapp.request.AddFlightRequest#getAirlineCode()Ljava/lang/String;118
+
+getAirlineCode119
+Q
+Jcom.flightapp.request.AddFlightRequest#setAirlineCode(Ljava/lang/String;)V121
+
+setAirlineCode122J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576jÈ
+A
+90;
+909160 *
+1G G(28:5B
+
+
+11
+12
+
+
+13
+92
+A
+15;
+151617 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+19
+A
+58;
+585960 *
+1& &(28:5B
+
+
+11
+12
+
+
+13
+14
+A
+75;
+757660 *
+16 6(28:5B
+
+
+11
+12
+
+
+13
+77
+E
+105>
+10510660 *
+1Y Y(28:5B
+
+
+11
+12
+
+13
+107
+A
+69;
+697060 *
+1/ /(28:5B
+
+
+11
+12
+
+
+13
+71
+
+45
+454622
+E
+102>
+10210360 *
+1U U(28:5B
+
+
+11
+12
+
+13
+104
+A
+39;
+394017 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+41
+A
+42;
+424317 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+44
+
+24
+242522
+A
+87;
+878860 *
+1D D(28:5B
+
+
+11
+12
+
+
+13
+89
+A
+93;
+939460 *
+1K K(28:5B
+
+
+11
+12
+
+
+13
+95
+E
+114>
+11411560 *
+1c c(28:5B
+
+
+11
+12
+
+13
+116
+
+47
+474822
+
+20
+202122
+A
+72;
+727360 *
+12 2(28:5B
+
+
+11
+12
+
+
+13
+74
+A
+52;
+525317 *
+1   (28:5B
+
+
+11
+18
+
+
+13
+54
+A
+81;
+818260 *
+1= =(28:5B
+
+
+11
+12
+
+
+13
+83
+A
+96;
+969760 *
+1N N(28:5B
+
+
+11
+12
+
+
+13
+98
+C
+99=
+9910060 *
+1R R(28:5B
+
+
+11
+12
+
+13
+101
+E
+117>
+11711860 *
+1g g(28:5B
+
+
+11
+12
+
+13
+119
+A
+27;
+272817 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+29
+A
+49;
+495017 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+51
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+A
+62;
+626360 *
+1( ((28:5B
+
+
+11
+12
+
+
+13
+64
+E
+108>
+10810960 *
+1\ \(28:5B
+
+
+11
+12
+
+13
+110
+A
+78;
+787960 *
+19 9(28:5B
+
+
+11
+12
+
+
+13
+80
+A
+33;
+333417 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+35
+A
+84;
+848560 *
+1@ @(28:5B
+
+
+11
+12
+
+
+13
+86
+A
+55;
+555617 *
+1# #(28:5B
+
+
+11
+18
+
+
+13
+57
+A
+36;
+363717 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+38
+A
+30;
+303117 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+32
+A
+66;
+666760 *
+1+ +(28:5B
+
+
+11
+12
+
+
+13
+68
+E
+111>
+11111260 *
+1` `(28:5B
+
+
+11
+12
+
+13
+113
+E
+120>
+12012160 *
+1j j(28:5B
+
+
+11
+12
+
+13
+122ré
+
+152023*
+1 (
+
+152426*
+1 (
+
+272023*
+1 (
+
+272426*
+1 (
+
+302023*
+1 (
+
+302426*
+1 (
+
+332023*
+1 (
+
+332426*
+1 (
+
+362023*
+1 (
+
+362426*
+1 (
+
+392023*
+1 (
+
+392426*
+1 (
+
+424523*
+1 (
+
+424726*
+1 (
+
+494523*
+1 (
+
+494726*
+1 (
+
+524523*
+1   (
+
+524726*
+1   (
+
+552023*
+1# #(
+
+552426*
+1# #(
+
+58861*
+1& &(
+
+621565*
+1) )(
+
+66826*
+1,	 ,(
+
+66865*
+1,	 ,(
+
+661565*
+1, ,(
+
+692765*
+10 0(
+
+72826*
+13	 3(
+
+72865*
+13	 3(
+
+722765*
+13 3(
+
+753065*
+17 7(
+
+78826*
+1:	 :(
+
+78865*
+1:	 :(
+
+783065*
+1: :(
+
+813365*
+1> >(
+
+84826*
+1A	 A(
+
+84865*
+1A	 A(
+
+843365*
+1A A(
+
+873665*
+1E E(
+
+90826*
+1H	 H(
+
+90865*
+1H	 H(
+
+903665*
+1H H(
+
+933965*
+1L L(
+
+96826*
+1O	 O(
+
+96865*
+1O	 O(
+
+963965*
+1O O(
+
+994265*
+1S S(
+
+102826*
+1V	 V(
+
+102865*
+1V	 V(
+
+1024265*
+1V V(
+
+1054965*
+1Z Z(
+
+108826*
+1]	 ](
+
+108865*
+1]	 ](
+
+1084965*
+1] ](
+
+1115265*
+1a a(
+
+114826*
+1d	 d(
+
+114865*
+1d	 d(
+
+1145265*
+1d d(
+
+1175565*
+1h h(
+
+120826*
+1k	 k(
+
+120865*
+1k	 k(
+
+1205565*
+1k k(

@@ -1,0 +1,440 @@
+
+1.0flightbookingJavaFrontend"1763629648384*java2.Bä
+6
+1src/main/java/com/flightapp/dto/PassengerDTO.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.dto7
+#
+com.flightapp.dto.PassengerDTO9
+
+class10
+
+access11
+
+public12
+
+simple-name13
+
+PassengerDTO14
+'
+!com.flightapp.dto.PassengerDTO.id16
+
+field17
+
+private18
+
+id19
+2
+,com.flightapp.dto.PassengerDTO.passengerName21
+
+passengerName22
+(
+"com.flightapp.dto.PassengerDTO.age24
+	
+age25
++
+%com.flightapp.dto.PassengerDTO.gender27
+
+gender28
+3
+-com.flightapp.dto.PassengerDTO.mealPreference30
+
+mealPreference31
+2
+,com.flightapp.dto.PassengerDTO.luggageWeight33
+
+luggageWeight34
+.
+(com.flightapp.dto.PassengerDTO#<init>()V36
+
+method37
+
+calls38
+<
+6com.flightapp.dto.PassengerDTO#getId()Ljava/lang/Long;40
+
+getId41
+
+
+references42
+=
+7com.flightapp.dto.PassengerDTO#setId(Ljava/lang/Long;)V44
+
+setId45
+
+
+uses46
+I
+Ccom.flightapp.dto.PassengerDTO#getPassengerName()Ljava/lang/String;48
+
+getPassengerName49
+J
+Dcom.flightapp.dto.PassengerDTO#setPassengerName(Ljava/lang/String;)V51
+
+setPassengerName52
+.
+(com.flightapp.dto.PassengerDTO#getAge()I54
+
+getAge55
+/
+)com.flightapp.dto.PassengerDTO#setAge(I)V57
+
+setAge58
+B
+<com.flightapp.dto.PassengerDTO#getGender()Ljava/lang/String;60
+
+	getGender61
+C
+=com.flightapp.dto.PassengerDTO#setGender(Ljava/lang/String;)V63
+
+	setGender64
+J
+Dcom.flightapp.dto.PassengerDTO#getMealPreference()Ljava/lang/String;66
+
+getMealPreference67
+K
+Ecom.flightapp.dto.PassengerDTO#setMealPreference(Ljava/lang/String;)V69
+
+setMealPreference70
+8
+2com.flightapp.dto.PassengerDTO#getLuggageWeight()D72
+
+getLuggageWeight73
+9
+3com.flightapp.dto.PassengerDTO#setLuggageWeight(D)V75
+
+setLuggageWeight76J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576j¶
+
+A
+59;
+596037 *
+1& &(28:5B
+
+
+11
+12
+
+
+13
+61
+A
+53;
+535437 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+55
+A
+65;
+656637 *
+1. .(28:5B
+
+
+11
+12
+
+
+13
+67
+A
+39;
+394037 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+41
+A
+62;
+626337 *
+1* *(28:5B
+
+
+11
+12
+
+
+13
+64
+A
+50;
+505137 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+52
+A
+23;
+232417 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+25
+A
+56;
+565737 *
+1" "(28:5B
+
+
+11
+12
+
+
+13
+58
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+A
+47;
+474837 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+49
+A
+15;
+151617 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+19
+A
+71;
+717237 *
+16 6(28:5B
+
+
+11
+12
+
+
+13
+73
+A
+29;
+293017 *
+1	 	(28:5B
+
+
+11
+18
+
+
+13
+31
+A
+68;
+686937 *
+12 2(28:5B
+
+
+11
+12
+
+
+13
+70
+A
+74;
+747537 *
+1: :(28:5B
+
+
+11
+12
+
+
+13
+76
+A
+43;
+434437 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+45
+A
+26;
+262717 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+28
+A
+20;
+202117 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+22
+A
+32;
+323317 *
+1
+ 
+(28:5B
+
+
+11
+18
+
+
+13
+34
+A
+35;
+353637 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+14r–
+
+35838*
+1 (
+
+391542*
+1 (
+
+43846*
+1	 (
+
+43842*
+1	 (
+
+431542*
+1 (
+
+472042*
+1 (
+
+50846*
+1	 (
+
+50842*
+1	 (
+
+502042*
+1 (
+
+532342*
+1 (
+
+56846*
+1#	 #(
+
+56842*
+1#	 #(
+
+562342*
+1# #(
+
+592642*
+1' '(
+
+62846*
+1+	 +(
+
+62842*
+1+	 +(
+
+622642*
+1+ +(
+
+652942*
+1/ /(
+
+68846*
+13	 3(
+
+68842*
+13	 3(
+
+682942*
+13 3(
+
+713242*
+17 7(
+
+74846*
+1;	 ;(
+
+74842*
+1;	 ;(
+
+743242*
+1; ;(

@@ -1,0 +1,353 @@
+
+1.0flightbookingJavaFrontend"1763629648782*java2.BÁ
+A
+<src/main/java/com/flightapp/controller/FlightController.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.controller7
+.
+)com.flightapp.controller.FlightController9
+
+class10
+
+access11
+
+public12
+
+simple-name13
+
+FlightController14
+
+RestController16
+
+unknown17
+
+annotated by18
+,
+&Recovered#typeBindingLRestController;020
+
+
+uses21
+
+RequestMapping23
+,
+&Recovered#typeBindingLRequestMapping;025
+7
+1com.flightapp.controller.FlightController.service27
+
+field28
+
+private29
+
+service30
+)
+#com.flightapp.service.FlightService32
+
+is type33
+^
+Xcom.flightapp.controller.FlightController#<init>(Lcom/flightapp/service/FlightService;)V35
+
+method36
+
+	has param37
+
+calls38
+
+
+references39
+
+ycom.flightapp.controller.FlightController#addFlight(Lcom/flightapp/request/AddFlightRequest;)Lcom/flightapp/model/Flight;41
+
+	addFlight42
+ 
+com.flightapp.model.Flight44
+
+returns45
+,
+&com.flightapp.request.AddFlightRequest47
+
+PostMapping49
+)
+#Recovered#typeBindingLPostMapping;051
+
+Valid53
+#
+Recovered#typeBindingLValid;055
+
+RequestBody57
+)
+#Recovered#typeBindingLRequestBody;059
+y
+scom.flightapp.service.FlightService#addFlight(Lcom/flightapp/request/AddFlightRequest;)Lcom/flightapp/model/Flight;61
+s
+mcom.flightapp.controller.FlightController#search(Lcom/flightapp/request/FlightSearchRequest;)Ljava/util/List;63
+
+search64
+/
+)com.flightapp.request.FlightSearchRequest66
+t
+ncom.flightapp.service.FlightService#searchFlights(Lcom/flightapp/request/FlightSearchRequest;)Ljava/util/List;68J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576j‰
+A
+34;
+343536 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+14
+
+60
+606117
+
+19
+192017
+
+15
+151617
+
+46
+464717
+
+58
+585917
+
+54
+545517
+
+43
+434417
+
+50
+505117
+
+22
+222317
+
+31
+313217
+A
+26;
+262728 *
+1 (28:5B
+
+
+11
+29
+
+
+13
+30
+
+48
+484917
+
+52
+525317
+
+65
+656617
+
+67
+676817
+A
+40;
+404136 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+42
+
+24
+242517
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+A
+62;
+626336 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+64
+
+56
+565717rî	
+
+81518*
+1 (
+
+81921*
+1 (
+
+82218*
+1 (
+
+82421*
+1 (
+
+263133*
+1 ( 
+
+263121*
+1 ( 
+
+263121*
+1! ((
+
+343137*
+1 (*
+
+34838*
+1 (
+
+343133*
+1+ (2
+
+343121*
+1 (*
+
+34821*
+1	 (
+
+34839*
+1	 (
+
+343121*
+1 (
+
+342639*
+1 (
+
+404345*
+1 (
+
+404637*
+11 (A
+
+404818*
+1 (
+
+405021*
+1 (
+
+404321*
+1 (
+
+404633*
+1B (E
+
+405218*
+1 (
+
+405421*
+1 (#
+
+405618*
+1$ (%
+
+405821*
+1% (0
+
+404621*
+11 (A
+
+404345*
+1 (
+
+403139*
+1 (
+
+406038*
+1 (!
+
+402639*
+1 (
+
+403121*
+1 (
+
+402639*
+1 (
+
+626537*
+14 (G
+
+624818*
+1 (
+
+625021*
+1 (
+
+624321*
+1 (
+
+626533*
+1H (K
+
+625218*
+1  (!
+
+625421*
+1! (&
+
+625618*
+1' ((
+
+625821*
+1( (3
+
+626521*
+14 (G
+
+623139*
+1 (
+
+626738*
+1 (%
+
+622639*
+1 (
+
+623121*
+1 (
+
+622639*
+1 (

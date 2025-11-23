@@ -1,0 +1,15 @@
+
+Ucom.flightapp.model.Passenger#getMealPreference()Lcom/flightapp/model/enums/MealType;É
+y/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/model/Passenger.javaC C(%"1*ÿ
+1D D(ê
+ç
+D D((
+%0"com.flightapp.model.enums.MealType"__id*Q
+
+__unknown_file (5*3
+com.flightapp.model.Passenger"
+mealPreference"6
+D D(*
+(
+%0"com.flightapp.model.enums.MealTypeB!
+com.flightapp.model.PassengerH

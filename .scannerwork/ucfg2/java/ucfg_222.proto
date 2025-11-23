@@ -1,0 +1,15 @@
+
+@com.flightapp.model.Flight#getArrivalTime()Ljava/time/LocalTime;€
+v/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/model/Flight.javap p(#"1*²
+1q q(z
+x
+q q(
+%0java.time.LocalTime"__id*K
+
+__unknown_file (/*-
+com.flightapp.model.Flight"
+arrivalTime"'
+q q(
+
+%0java.time.LocalTimeB
+com.flightapp.model.FlightH

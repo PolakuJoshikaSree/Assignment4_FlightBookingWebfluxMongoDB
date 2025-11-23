@@ -1,0 +1,325 @@
+
+1.0flightbookingJavaFrontend"1763629648606*java2.BŒ
+
+4
+/src/main/java/com/flightapp/dto/AirlineDTO.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.dto7
+!
+com.flightapp.dto.AirlineDTO9
+
+class10
+
+access11
+
+public12
+
+simple-name13
+
+
+AirlineDTO14
+%
+com.flightapp.dto.AirlineDTO.id16
+
+field17
+
+private18
+
+id19
+.
+(com.flightapp.dto.AirlineDTO.airlineName21
+
+airlineName22
+.
+(com.flightapp.dto.AirlineDTO.airlineCode24
+
+airlineCode25
+*
+$com.flightapp.dto.AirlineDTO.country27
+
+country28
+,
+&com.flightapp.dto.AirlineDTO#<init>()V30
+
+method31
+
+calls32
+:
+4com.flightapp.dto.AirlineDTO#getId()Ljava/lang/Long;34
+
+getId35
+
+
+references36
+;
+5com.flightapp.dto.AirlineDTO#setId(Ljava/lang/Long;)V38
+
+setId39
+
+
+uses40
+E
+?com.flightapp.dto.AirlineDTO#getAirlineName()Ljava/lang/String;42
+
+getAirlineName43
+F
+@com.flightapp.dto.AirlineDTO#setAirlineName(Ljava/lang/String;)V45
+
+setAirlineName46
+E
+?com.flightapp.dto.AirlineDTO#getAirlineCode()Ljava/lang/String;48
+
+getAirlineCode49
+F
+@com.flightapp.dto.AirlineDTO#setAirlineCode(Ljava/lang/String;)V51
+
+setAirlineCode52
+A
+;com.flightapp.dto.AirlineDTO#getCountry()Ljava/lang/String;54
+
+
+getCountry55
+B
+<com.flightapp.dto.AirlineDTO#setCountry(Ljava/lang/String;)V57
+
+
+setCountry58J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576j¤
+A
+33;
+333431 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+35
+A
+56;
+565731 *
+1( ((28:5B
+
+
+11
+12
+
+
+13
+58
+A
+26;
+262717 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+28
+A
+53;
+535431 *
+1$ $(28:5B
+
+
+11
+12
+
+
+13
+55
+A
+29;
+293031 *
+1
+ 
+(28:5B
+
+
+11
+12
+
+
+13
+14
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+A
+15;
+151617 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+19
+A
+41;
+414231 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+43
+A
+20;
+202117 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+22
+A
+47;
+474831 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+49
+A
+37;
+373831 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+39
+A
+50;
+505131 *
+1   (28:5B
+
+
+11
+12
+
+
+13
+52
+A
+23;
+232417 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+25
+A
+44;
+444531 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+46rÂ
+
+29832*
+1
+ 
+(
+
+331536*
+1 (
+
+37840*
+1	 (
+
+37836*
+1	 (
+
+371536*
+1 (
+
+412036*
+1 (
+
+44840*
+1	 (
+
+44836*
+1	 (
+
+442036*
+1 (
+
+472336*
+1 (
+
+50840*
+1!	 !(
+
+50836*
+1!	 !(
+
+502336*
+1! !(
+
+532636*
+1% %(
+
+56840*
+1)	 )(
+
+56836*
+1)	 )(
+
+562636*
+1) )(

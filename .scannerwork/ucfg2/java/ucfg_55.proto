@@ -1,0 +1,83 @@
+
+wcom.flightapp.service.AirlineService#addAirline(Lcom/flightapp/request/AddAirlineRequest;)Lcom/flightapp/model/Airline;‹
+€/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/service/AirlineService.java ("1*ï
+1 ('LJ
+ (%!
+%0com.flightapp.model.Airline"com.flightapp.model.Airlinez
+x
+ ('
+%1"%com.flightapp.model.Airline#<init>()V*?
+
+__unknown_file (#
+!
+%0com.flightapp.model.Airline{
+y
+ ((&
+airlinecom.flightapp.model.Airline"__id*?
+
+__unknown_file (#
+!
+%0com.flightapp.model.AirlineÕÒ
+ (7
+%2java.lang.String"Jcom.flightapp.request.AddAirlineRequest#getAirlineName()Ljava/lang/String;*P
+
+__unknown_file (4
+2
+request'com.flightapp.request.AddAirlineRequest2getAirlineName()ú÷
+ (8
+
+%3void"?com.flightapp.model.Airline#setAirlineName(Ljava/lang/String;)V*D
+
+__unknown_file ((
+&
+airlinecom.flightapp.model.Airline*4
+
+__unknown_file (
+
+%2java.lang.String2"setAirlineName(Ljava/lang/String;)ÕÒ
+ (7
+%4java.lang.String"Jcom.flightapp.request.AddAirlineRequest#getAirlineCode()Ljava/lang/String;*P
+
+__unknown_file (4
+2
+request'com.flightapp.request.AddAirlineRequest2getAirlineCode()ú÷
+ (8
+
+%5void"?com.flightapp.model.Airline#setAirlineCode(Ljava/lang/String;)V*D
+
+__unknown_file ((
+&
+airlinecom.flightapp.model.Airline*4
+
+__unknown_file (
+
+%4java.lang.String2"setAirlineCode(Ljava/lang/String;)ÍÊ
+ (/
+%6java.lang.String"Fcom.flightapp.request.AddAirlineRequest#getCountry()Ljava/lang/String;*P
+
+__unknown_file (4
+2
+request'com.flightapp.request.AddAirlineRequest2getCountry()òï
+ (0
+
+%7void";com.flightapp.model.Airline#setCountry(Ljava/lang/String;)V*D
+
+__unknown_file ((
+&
+airlinecom.flightapp.model.Airline*4
+
+__unknown_file (
+
+%6java.lang.String2setCountry(Ljava/lang/String;)•
+’
+ (0
+%8*com.flightapp.repository.AirlineRepository"__id*N
+
+__unknown_file (2*0&
+$com.flightapp.service.AirlineService"
+repo"
+ ("
+"":>
+ (72
+request'com.flightapp.request.AddAirlineRequestB(&
+$com.flightapp.service.AirlineServiceH

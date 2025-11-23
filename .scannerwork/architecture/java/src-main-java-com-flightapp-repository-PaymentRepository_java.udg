@@ -1,0 +1,73 @@
+
+1.0flightbookingJavaFrontend"1763629648807*java2.BŽ
+B
+=src/main/java/com/flightapp/repository/PaymentRepository.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.repository7
+/
+*com.flightapp.repository.PaymentRepository9
+
+	interface10
+
+access11
+
+public12
+
+simple-name13
+
+PaymentRepository14
++
+%Recovered#typeBindingLJpaRepository;016
+
+unknown17
+
+
+implements18
+
+
+uses19
+!
+com.flightapp.model.Payment21J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576je
+
+20
+202117
+;
+86
+8910 *
+1 (#:5B
+
+
+11
+12
+
+
+13
+14
+
+15
+151617rN
+
+81518*
+1, (9
+
+81519*
+1, (9
+
+82019*
+1: (A

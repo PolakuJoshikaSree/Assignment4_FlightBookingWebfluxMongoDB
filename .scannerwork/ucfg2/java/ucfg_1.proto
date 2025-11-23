@@ -1,0 +1,77 @@
+
+}com.flightapp.controller.AirlineController#addAirline(Lcom/flightapp/request/AddAirlineRequest;)Lcom/flightapp/model/Airline;‘
+†/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/controller/AirlineController.java ("startingBlock*¹
+startingBlock (Lž
+›
+ (
+%2"
+__annotate*+
+
+__unknown_file (
+PostMapping*P
+
+__unknown_file (4
+2
+request'com.flightapp.request.AddAirlineRequest˜
+•
+ ($
+%3"
+__annotate*%
+
+__unknown_file (	
+Valid*P
+
+__unknown_file (4
+2
+request'com.flightapp.request.AddAirlineRequestž
+›
+% (1
+%4"
+__annotate*+
+
+__unknown_file (
+RequestBody*P
+
+__unknown_file (4
+2
+request'com.flightapp.request.AddAirlineRequest»
+¸
+D (K2
+request'com.flightapp.request.AddAirlineRequest"__annotation*"
+
+__unknown_file (
+
+%2*"
+
+__unknown_file (
+
+%3*"
+
+__unknown_file (
+
+%4*
+1*Ø
+1 (˜
+•
+ (*
+%0$com.flightapp.service.AirlineService"__id*W
+
+__unknown_file (;*9,
+*com.flightapp.controller.AirlineController"	
+serviceüù
+ (*!
+%1com.flightapp.model.Airline"wcom.flightapp.service.AirlineService#addAirline(Lcom/flightapp/request/AddAirlineRequest;)Lcom/flightapp/model/Airline;*H
+
+__unknown_file (,
+*
+%0$com.flightapp.service.AirlineService*P
+
+__unknown_file (4
+2
+request'com.flightapp.request.AddAirlineRequest25addAirline(Lcom/flightapp/request/AddAirlineRequest;)"/
+ (+#
+!
+%1com.flightapp.model.Airline:>
+ (K2
+request'com.flightapp.request.AddAirlineRequestB.,
+*com.flightapp.controller.AirlineControllerH

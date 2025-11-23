@@ -1,0 +1,849 @@
+
+1.0flightbookingJavaFrontend"1763629648484*java2.Bð
+3
+.src/main/java/com/flightapp/dto/FlightDTO.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.dto7
+ 
+com.flightapp.dto.FlightDTO9
+
+class10
+
+access11
+
+public12
+
+simple-name13
+
+	FlightDTO14
+$
+com.flightapp.dto.FlightDTO.id16
+
+field17
+
+private18
+
+id19
+.
+(com.flightapp.dto.FlightDTO.flightNumber21
+
+flightNumber22
++
+%com.flightapp.dto.FlightDTO.fromPlace24
+
+	fromPlace25
+)
+#com.flightapp.dto.FlightDTO.toPlace27
+
+toPlace28
+,
+&com.flightapp.dto.FlightDTO.flightDate30
+
+
+flightDate31
+/
+)com.flightapp.dto.FlightDTO.departureTime33
+
+departureTime34
+-
+'com.flightapp.dto.FlightDTO.arrivalTime36
+
+arrivalTime37
+0
+*com.flightapp.dto.FlightDTO.baggageLimitKg39
+
+baggageLimitKg40
+,
+&com.flightapp.dto.FlightDTO.totalSeats42
+
+
+totalSeats43
+-
+'com.flightapp.dto.FlightDTO.bookedSeats45
+
+bookedSeats46
+'
+!com.flightapp.dto.FlightDTO.price48
+
+price49
+3
+-com.flightapp.dto.FlightDTO.mealTypeAvailable51
+
+mealTypeAvailable52
++
+%com.flightapp.dto.FlightDTO.airlineId54
+
+	airlineId55
++
+%com.flightapp.dto.FlightDTO#<init>()V57
+
+method58
+
+calls59
+9
+3com.flightapp.dto.FlightDTO#getId()Ljava/lang/Long;61
+
+getId62
+
+
+references63
+:
+4com.flightapp.dto.FlightDTO#setId(Ljava/lang/Long;)V65
+
+setId66
+
+
+uses67
+E
+?com.flightapp.dto.FlightDTO#getFlightNumber()Ljava/lang/String;69
+
+getFlightNumber70
+F
+@com.flightapp.dto.FlightDTO#setFlightNumber(Ljava/lang/String;)V72
+
+setFlightNumber73
+B
+<com.flightapp.dto.FlightDTO#getFromPlace()Ljava/lang/String;75
+
+getFromPlace76
+C
+=com.flightapp.dto.FlightDTO#setFromPlace(Ljava/lang/String;)V78
+
+setFromPlace79
+@
+:com.flightapp.dto.FlightDTO#getToPlace()Ljava/lang/String;81
+
+
+getToPlace82
+A
+;com.flightapp.dto.FlightDTO#setToPlace(Ljava/lang/String;)V84
+
+
+setToPlace85
+F
+@com.flightapp.dto.FlightDTO#getFlightDate()Ljava/time/LocalDate;87
+
+getFlightDate88
+G
+Acom.flightapp.dto.FlightDTO#setFlightDate(Ljava/time/LocalDate;)V90
+
+setFlightDate91
+I
+Ccom.flightapp.dto.FlightDTO#getDepartureTime()Ljava/time/LocalTime;93
+
+getDepartureTime94
+J
+Dcom.flightapp.dto.FlightDTO#setDepartureTime(Ljava/time/LocalTime;)V96
+
+setDepartureTime97
+G
+Acom.flightapp.dto.FlightDTO#getArrivalTime()Ljava/time/LocalTime;99
+
+getArrivalTime100
+I
+Bcom.flightapp.dto.FlightDTO#setArrivalTime(Ljava/time/LocalTime;)V102
+
+setArrivalTime103
+7
+0com.flightapp.dto.FlightDTO#getBaggageLimitKg()D105
+
+getBaggageLimitKg106
+8
+1com.flightapp.dto.FlightDTO#setBaggageLimitKg(D)V108
+
+setBaggageLimitKg109
+3
+,com.flightapp.dto.FlightDTO#getTotalSeats()I111
+
+getTotalSeats112
+4
+-com.flightapp.dto.FlightDTO#setTotalSeats(I)V114
+
+setTotalSeats115
+4
+-com.flightapp.dto.FlightDTO#getBookedSeats()I117
+
+getBookedSeats118
+5
+.com.flightapp.dto.FlightDTO#setBookedSeats(I)V120
+
+setBookedSeats121
+.
+'com.flightapp.dto.FlightDTO#getPrice()D123
+
+getPrice124
+/
+(com.flightapp.dto.FlightDTO#setPrice(D)V126
+
+setPrice127
+K
+Dcom.flightapp.dto.FlightDTO#getMealTypeAvailable()Ljava/lang/String;129
+
+getMealTypeAvailable130
+L
+Ecom.flightapp.dto.FlightDTO#setMealTypeAvailable(Ljava/lang/String;)V132
+
+setMealTypeAvailable133
+A
+:com.flightapp.dto.FlightDTO#getAirlineId()Ljava/lang/Long;135
+
+getAirlineId136
+B
+;com.flightapp.dto.FlightDTO#setAirlineId(Ljava/lang/Long;)V138
+
+setAirlineId139J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576jê
+A
+26;
+262717 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+28
+A
+44;
+444517 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+46
+A
+15;
+151617 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+19
+A
+92;
+929358 *
+1@ @(28:5B
+
+
+11
+12
+
+
+13
+94
+A
+64;
+646558 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+66
+A
+20;
+202117 *
+1	 	(28:5B
+
+
+11
+18
+
+
+13
+22
+E
+119>
+11912058 *
+1d d(28:5B
+
+
+11
+12
+
+13
+121
+A
+29;
+293017 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+31
+A
+86;
+868758 *
+18 8(28:5B
+
+
+11
+12
+
+
+13
+88
+A
+68;
+686958 *
+1   (28:5B
+
+
+11
+12
+
+
+13
+70
+E
+110>
+11011158 *
+1X X(28:5B
+
+
+11
+12
+
+13
+112
+A
+23;
+232417 *
+1
+ 
+(28:5B
+
+
+11
+18
+
+
+13
+25
+A
+95;
+959658 *
+1D D(28:5B
+
+
+11
+12
+
+
+13
+97
+A
+77;
+777858 *
+1, ,(28:5B
+
+
+11
+12
+
+
+13
+79
+A
+60;
+606158 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+62
+A
+83;
+838458 *
+14 4(28:5B
+
+
+11
+12
+
+
+13
+85
+E
+107>
+10710858 *
+1T T(28:5B
+
+
+11
+12
+
+13
+109
+A
+71;
+717258 *
+1$ $(28:5B
+
+
+11
+12
+
+
+13
+73
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+A
+35;
+353617 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+37
+A
+47;
+474817 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+49
+A
+50;
+505117 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+52
+A
+74;
+747558 *
+1( ((28:5B
+
+
+11
+12
+
+
+13
+76
+A
+80;
+808158 *
+10 0(28:5B
+
+
+11
+12
+
+
+13
+82
+A
+56;
+565758 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+14
+E
+116>
+11611758 *
+1` `(28:5B
+
+
+11
+12
+
+13
+118
+A
+38;
+383917 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+40
+E
+101>
+10110258 *
+1L L(28:5B
+
+
+11
+12
+
+13
+103
+A
+53;
+535417 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+55
+E
+128>
+12812958 *
+1p p(28:5B
+
+
+11
+12
+
+13
+130
+E
+125>
+12512658 *
+1l l(28:5B
+
+
+11
+12
+
+13
+127
+E
+134>
+13413558 *
+1x x(28:5B
+
+
+11
+12
+
+13
+136
+A
+89;
+899058 *
+1< <(28:5B
+
+
+11
+12
+
+
+13
+91
+E
+131>
+13113258 *
+1t t(28:5B
+
+
+11
+12
+
+13
+133
+B
+98<
+989958 *
+1H H(28:5B
+
+
+11
+12
+
+13
+100
+A
+32;
+323317 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+34
+E
+113>
+11311458 *
+1\ \(28:5B
+
+
+11
+12
+
+13
+115
+E
+122>
+12212358 *
+1h h(28:5B
+
+
+11
+12
+
+13
+124
+E
+104>
+10410558 *
+1P P(28:5B
+
+
+11
+12
+
+13
+106
+A
+41;
+414217 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+43
+E
+137>
+13713858 *
+1| |(28:5B
+
+
+11
+12
+
+13
+139r—
+
+56859*
+1 (
+
+601563*
+1 (
+
+64867*
+1	 (
+
+64863*
+1	 (
+
+641563*
+1 (
+
+682063*
+1! !(
+
+71867*
+1%	 %(
+
+71863*
+1%	 %(
+
+712063*
+1% %(
+
+742363*
+1) )(
+
+77867*
+1-	 -(
+
+77863*
+1-	 -(
+
+772363*
+1- -(
+
+802663*
+11 1(
+
+83867*
+15	 5(
+
+83863*
+15	 5(
+
+832663*
+15 5(
+
+862963*
+19 9(
+
+89867*
+1=	 =(
+
+89863*
+1=	 =(
+
+892963*
+1= =(
+
+923263*
+1A A(
+
+95867*
+1E	 E(
+
+95863*
+1E	 E(
+
+953263*
+1E E(
+
+983563*
+1I I(
+
+101867*
+1M	 M(
+
+101863*
+1M	 M(
+
+1013563*
+1M M(
+
+1043863*
+1Q Q(
+
+107867*
+1U	 U(
+
+107863*
+1U	 U(
+
+1073863*
+1U U(
+
+1104163*
+1Y Y(
+
+113867*
+1]	 ](
+
+113863*
+1]	 ](
+
+1134163*
+1] ](
+
+1164463*
+1a a(
+
+119867*
+1e	 e(
+
+119863*
+1e	 e(
+
+1194463*
+1e e(
+
+1224763*
+1i i(
+
+125867*
+1m	 m(
+
+125863*
+1m	 m(
+
+1254763*
+1m m(
+
+1285063*
+1q q(!
+
+131867*
+1u	 u(
+
+131863*
+1u	 u(
+
+1315063*
+1u u(
+
+1345363*
+1y y(
+
+137867*
+1}	 }(
+
+137863*
+1}	 }(
+
+1375363*
+1} }(

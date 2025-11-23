@@ -1,0 +1,135 @@
+
+1.0flightbookingJavaFrontend"1763629648585*java2.B∞
+:
+5src/main/java/com/flightapp/model/enums/MealType.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.model.enums7
+'
+"com.flightapp.model.enums.MealType9
+
+
+enum10
+
+access11
+
+public12
+
+simple-name13
+
+MealType14
+V
+Pcom.flightapp.model.enums.MealType#values()[Lcom/flightapp/model/enums/MealType;16
+
+method17
+
+values18
+h
+bcom.flightapp.model.enums.MealType#valueOf(Ljava/lang/String;)Lcom/flightapp/model/enums/MealType;20
+
+valueOf21
+,
+&com.flightapp.model.enums.MealType.VEG23
+
+field24
+	
+VEG25
+
+calls26
+0
+*com.flightapp.model.enums.MealType.NON_VEG28
+
+NON_VEG29
+-
+'com.flightapp.model.enums.MealType.NONE31
+
+
+NONE32J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576j–
+5
+22/
+222324 *
+1 (28:5B
+
+
+13
+25
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+5
+19/
+192017 *
+1 (28:5B
+
+
+13
+21
+5
+15/
+151617 *
+1 (28:5B
+
+
+13
+18
+5
+30/
+303124 *
+1 (28:5B
+
+
+13
+32
+5
+27/
+272824 *
+1
+ (28:5B
+
+
+13
+29rú
+
+22826*
+1 (
+
+22826*
+1 (
+
+27826*
+1
+ (
+
+27826*
+1
+ (
+
+30826*
+1 (
+
+30826*
+1 (

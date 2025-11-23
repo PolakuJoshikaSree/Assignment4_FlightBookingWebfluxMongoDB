@@ -1,0 +1,16 @@
+
+:com.flightapp.dto.BookingDTO#getFlightId()Ljava/lang/Long;‚
+x/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/dto/BookingDTO.javaL L("1*§
+1M M(t
+r
+M M(
+%0java.lang.Long"__id*J
+
+__unknown_file (.*,
+com.flightapp.dto.BookingDTO"
+
+flightId""
+M M(
+
+%0java.lang.LongB 
+com.flightapp.dto.BookingDTOH

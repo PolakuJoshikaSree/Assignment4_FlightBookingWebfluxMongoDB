@@ -1,0 +1,7 @@
+organization=polakujoshikasree
+projectKey=flightbooking
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.76685
+dashboardUrl=https://sonarcloud.io/dashboard?id=flightbooking
+ceTaskId=AZqghNlb9WUYYs7phuRF
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZqghNlb9WUYYs7phuRF

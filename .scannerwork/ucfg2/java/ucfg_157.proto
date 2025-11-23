@@ -1,0 +1,15 @@
+
+Pcom.flightapp.model.Booking#getStatus()Lcom/flightapp/model/enums/BookingStatus;Å
+w/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/model/Booking.java_ _(""1*ÿ
+1` `(ã
+à
+` `(-
+%0'com.flightapp.model.enums.BookingStatus"__id*G
+
+__unknown_file (+*)
+com.flightapp.model.Booking"
+status";
+` `(/
+-
+%0'com.flightapp.model.enums.BookingStatusB
+com.flightapp.model.BookingH

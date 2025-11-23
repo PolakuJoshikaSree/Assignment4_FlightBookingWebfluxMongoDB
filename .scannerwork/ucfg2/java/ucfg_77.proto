@@ -1,0 +1,15 @@
+
+Ccom.flightapp.dto.FlightDTO#getDepartureTime()Ljava/time/LocalTime;Å
+w/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/dto/FlightDTO.java@ @(%"1*µ
+1A A(}
+{
+A A(
+%0java.time.LocalTime"__id*N
+
+__unknown_file (2*0
+com.flightapp.dto.FlightDTO"
+departureTime"'
+A A(
+
+%0java.time.LocalTimeB
+com.flightapp.dto.FlightDTOH

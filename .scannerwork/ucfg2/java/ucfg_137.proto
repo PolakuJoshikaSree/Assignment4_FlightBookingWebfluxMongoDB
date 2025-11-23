@@ -1,0 +1,15 @@
+
+?com.flightapp.dto.AirlineDTO#getAirlineCode()Ljava/lang/String;‚
+x/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/dto/AirlineDTO.java ( "1*®
+1 (y
+w
+ (
+%0java.lang.String"__id*M
+
+__unknown_file (1*/
+com.flightapp.dto.AirlineDTO"
+airlineCode"$
+ (
+
+%0java.lang.StringB 
+com.flightapp.dto.AirlineDTOH

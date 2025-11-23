@@ -1,0 +1,113 @@
+
+1.0flightbookingJavaFrontend"1763629648068*java2.BŒ
+?
+:src/main/java/com/flightapp/repository/SeatRepository.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.repository7
+,
+'com.flightapp.repository.SeatRepository9
+
+	interface10
+
+access11
+
+public12
+
+simple-name13
+
+SeatRepository14
++
+%Recovered#typeBindingLJpaRepository;016
+
+unknown17
+
+
+implements18
+
+
+uses19
+
+com.flightapp.model.Seat21
+Ž
+‡com.flightapp.repository.SeatRepository#findByFlightIdAndStatus(Ljava/lang/Long;Lcom/flightapp/model/enums/SeatStatus;)Ljava/util/List;23
+
+method24
+
+findByFlightIdAndStatus25
+*
+$com.flightapp.model.enums.SeatStatus27
+
+	has param28
+
+is type29J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576j¼
+
+26
+262717
+
+15
+151617
+
+20
+202117
+A
+22;
+222324 *
+1 (	28:5B
+
+
+11
+12
+
+
+13
+25
+;
+86
+8910 *
+1	 	( :5B
+
+
+11
+12
+
+
+13
+14rº
+
+81518*
+1	) 	(6
+
+81519*
+1	) 	(6
+
+82019*
+1	7 	(;
+
+222628*
+17 (A
+
+222019*
+1
+ (
+
+222629*
+1B (H
+
+222619*
+17 (A

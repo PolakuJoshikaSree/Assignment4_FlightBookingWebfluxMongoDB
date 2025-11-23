@@ -1,0 +1,16 @@
+
+?com.flightapp.model.Flight#getFlightDate()Ljava/time/LocalDate;€
+v/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/model/Flight.java` `(""1*±
+1a a(y
+w
+a a(
+%0java.time.LocalDate"__id*J
+
+__unknown_file (.*,
+com.flightapp.model.Flight"
+
+flightDate"'
+a a(
+
+%0java.time.LocalDateB
+com.flightapp.model.FlightH

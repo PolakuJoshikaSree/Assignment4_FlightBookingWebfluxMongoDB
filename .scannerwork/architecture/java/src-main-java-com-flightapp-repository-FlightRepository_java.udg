@@ -1,0 +1,99 @@
+
+1.0flightbookingJavaFrontend"1763629648529*java2.Bë
+A
+<src/main/java/com/flightapp/repository/FlightRepository.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.repository7
+.
+)com.flightapp.repository.FlightRepository9
+
+	interface10
+
+access11
+
+public12
+
+simple-name13
+
+FlightRepository14
++
+%Recovered#typeBindingLJpaRepository;016
+
+unknown17
+
+
+implements18
+
+
+uses19
+ 
+com.flightapp.model.Flight21
+¢
+›com.flightapp.repository.FlightRepository#findByFromPlaceAndToPlaceAndFlightDate(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDate;)Ljava/util/List;23
+
+method24
+,
+&findByFromPlaceAndToPlaceAndFlightDate25J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576j¨
+
+15
+151617
+;
+86
+8910 *
+1	 	(":5B
+
+
+11
+12
+
+
+13
+14
+A
+22;
+222324 *
+1
+ 
+(	28:5B
+
+
+11
+12
+
+
+13
+25
+
+20
+202117ri
+
+81518*
+1	+ 	(8
+
+81519*
+1	+ 	(8
+
+82019*
+1	9 	(?
+
+222019*
+1
+
+ 
+(

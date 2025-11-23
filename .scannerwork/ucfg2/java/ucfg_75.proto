@@ -1,0 +1,16 @@
+
+@com.flightapp.dto.FlightDTO#getFlightDate()Ljava/time/LocalDate;Å
+w/Users/polakujoshikasree/Documents/Guvi_Eclipse/FlightBookingApplication/src/main/java/com/flightapp/dto/FlightDTO.java8 8(""1*≤
+19 9(z
+x
+9 9(
+%0java.time.LocalDate"__id*K
+
+__unknown_file (/*-
+com.flightapp.dto.FlightDTO"
+
+flightDate"'
+9 9(
+
+%0java.time.LocalDateB
+com.flightapp.dto.FlightDTOH

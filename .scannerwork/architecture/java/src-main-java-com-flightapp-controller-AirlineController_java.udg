@@ -1,0 +1,407 @@
+
+1.0flightbookingJavaFrontend"1763629648203*java2.B°
+B
+=src/main/java/com/flightapp/controller/AirlineController.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.controller7
+/
+*com.flightapp.controller.AirlineController9
+
+class10
+
+access11
+
+public12
+
+simple-name13
+
+AirlineController14
+
+RestController16
+
+unknown17
+
+annotated by18
+,
+&Recovered#typeBindingLRestController;020
+
+
+uses21
+
+RequestMapping23
+,
+&Recovered#typeBindingLRequestMapping;025
+8
+2com.flightapp.controller.AirlineController.service27
+
+field28
+
+private29
+
+service30
+*
+$com.flightapp.service.AirlineService32
+
+is type33
+`
+Zcom.flightapp.controller.AirlineController#<init>(Lcom/flightapp/service/AirlineService;)V35
+
+method36
+
+	has param37
+
+calls38
+
+
+references39
+ƒ
+}com.flightapp.controller.AirlineController#addAirline(Lcom/flightapp/request/AddAirlineRequest;)Lcom/flightapp/model/Airline;41
+
+
+addAirline42
+!
+com.flightapp.model.Airline44
+
+returns45
+-
+'com.flightapp.request.AddAirlineRequest47
+
+PostMapping49
+)
+#Recovered#typeBindingLPostMapping;051
+
+Valid53
+#
+Recovered#typeBindingLValid;055
+
+RequestBody57
+)
+#Recovered#typeBindingLRequestBody;059
+}
+wcom.flightapp.service.AirlineService#addAirline(Lcom/flightapp/request/AddAirlineRequest;)Lcom/flightapp/model/Airline;61
+I
+Ccom.flightapp.controller.AirlineController#getAll()Ljava/util/List;63
+
+getAll64
+
+
+GetMapping66
+(
+"Recovered#typeBindingLGetMapping;068
+C
+=com.flightapp.service.AirlineService#getAll()Ljava/util/List;70
+k
+ecom.flightapp.controller.AirlineController#getByCode(Ljava/lang/String;)Lcom/flightapp/model/Airline;72
+
+	getByCode73
+
+PathVariable75
+*
+$Recovered#typeBindingLPathVariable;077
+l
+fcom.flightapp.service.AirlineService#getAirlineByCode(Ljava/lang/String;)Lcom/flightapp/model/Airline;79J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576jœ
+
+69
+697017
+A
+34;
+343536 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+14
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+
+78
+787917
+
+19
+192017
+A
+40;
+404136 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+42
+
+15
+151617
+
+76
+767717
+
+54
+545517
+
+22
+222317
+
+48
+484917
+A
+26;
+262728 *
+1 (28:5B
+
+
+11
+29
+
+
+13
+30
+
+24
+242517
+
+60
+606117
+
+67
+676817
+
+56
+565717
+
+31
+313217
+
+46
+464717
+
+58
+585917
+
+50
+505117
+
+43
+434417
+
+65
+656617
+
+52
+525317
+A
+62;
+626336 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+64
+A
+71;
+717236 *
+1" "(28:5B
+
+
+11
+12
+
+
+13
+73
+
+74
+747517rõ
+
+
+81518*
+1 (
+
+81921*
+1 (
+
+82218*
+1 (
+
+82421*
+1 (
+
+263133*
+1 (!
+
+263121*
+1 (!
+
+263121*
+1" ()
+
+343137*
+1 (,
+
+34838*
+1 (
+
+343133*
+1- (4
+
+343121*
+1 (,
+
+34821*
+1	 (
+
+34839*
+1	 (
+
+343121*
+1 (
+
+342639*
+1 (
+
+404345*
+1 (
+
+404637*
+13 (D
+
+404818*
+1 (
+
+405021*
+1 (
+
+404321*
+1 (
+
+404633*
+1E (L
+
+405218*
+1 ( 
+
+405421*
+1  (%
+
+405618*
+1& ('
+
+405821*
+1' (2
+
+404621*
+13 (D
+
+404345*
+1 (
+
+403139*
+1 (
+
+406038*
+1 ("
+
+402639*
+1 (
+
+403121*
+1 (
+
+402639*
+1 (
+
+626518*
+1 (
+
+626721*
+1 (
+
+624321*
+1 (
+
+623139*
+1 (
+
+626938*
+1 (
+
+622639*
+1 (
+
+623121*
+1 (
+
+622639*
+1 (
+
+714345*
+1# #(
+
+716518*
+1" "(
+
+716721*
+1" "(
+
+714321*
+1# #(
+
+717418*
+1# #(
+
+717621*
+1# #(+
+
+714345*
+1$ $(
+
+713139*
+1$ $(
+
+717838*
+1$ $((
+
+712639*
+1$ $(
+
+713121*
+1$ $(
+
+712639*
+1$ $(

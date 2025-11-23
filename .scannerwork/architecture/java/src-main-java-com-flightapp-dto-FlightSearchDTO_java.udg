@@ -1,0 +1,259 @@
+
+1.0flightbookingJavaFrontend"1763629648455*java2.Bù
+9
+4src/main/java/com/flightapp/dto/FlightSearchDTO.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.dto7
+&
+!com.flightapp.dto.FlightSearchDTO9
+
+class10
+
+access11
+
+public12
+
+simple-name13
+
+FlightSearchDTO14
+,
+&com.flightapp.dto.FlightSearchDTO.from16
+
+field17
+
+private18
+
+
+from19
+*
+$com.flightapp.dto.FlightSearchDTO.to21
+
+to22
+,
+&com.flightapp.dto.FlightSearchDTO.date24
+
+
+date25
+1
++com.flightapp.dto.FlightSearchDTO#<init>()V27
+
+method28
+
+calls29
+C
+=com.flightapp.dto.FlightSearchDTO#getFrom()Ljava/lang/String;31
+
+getFrom32
+
+
+references33
+D
+>com.flightapp.dto.FlightSearchDTO#setFrom(Ljava/lang/String;)V35
+
+setFrom36
+
+
+uses37
+A
+;com.flightapp.dto.FlightSearchDTO#getTo()Ljava/lang/String;39
+
+getTo40
+B
+<com.flightapp.dto.FlightSearchDTO#setTo(Ljava/lang/String;)V42
+
+setTo43
+F
+@com.flightapp.dto.FlightSearchDTO#getDate()Ljava/time/LocalDate;45
+
+getDate46
+G
+Acom.flightapp.dto.FlightSearchDTO#setDate(Ljava/time/LocalDate;)V48
+
+setDate49J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576j€
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+A
+30;
+303128 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+32
+A
+20;
+202117 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+22
+A
+47;
+474828 *
+1! !(28:5B
+
+
+11
+12
+
+
+13
+49
+A
+41;
+414228 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+43
+A
+23;
+232417 *
+1	 	(28:5B
+
+
+11
+18
+
+
+13
+25
+A
+15;
+151617 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+19
+A
+38;
+383928 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+40
+A
+34;
+343528 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+36
+A
+26;
+262728 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+14
+A
+44;
+444528 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+46rÿ
+
+26829*
+1 (
+
+301533*
+1 (
+
+34837*
+1	 (
+
+34833*
+1	 (
+
+341533*
+1 (
+
+382033*
+1 (
+
+41837*
+1	 (
+
+41833*
+1	 (
+
+412033*
+1 (
+
+442333*
+1 (
+
+47837*
+1"	 "(
+
+47833*
+1"	 "(
+
+472333*
+1" "(

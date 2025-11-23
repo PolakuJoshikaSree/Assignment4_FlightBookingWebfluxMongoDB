@@ -1,0 +1,371 @@
+
+1.0flightbookingJavaFrontend"1763629648846*java2.B®
+<
+7src/main/java/com/flightapp/request/BookingRequest.java2
+	
+type3
+	
+MAIN4
+
+package6
+
+com.flightapp.request7
+)
+$com.flightapp.request.BookingRequest9
+
+class10
+
+access11
+
+public12
+
+simple-name13
+
+BookingRequest14
+0
+*com.flightapp.request.BookingRequest.email16
+
+field17
+
+private18
+
+email19
+
+NotBlank21
+
+unknown22
+
+annotated by23
+&
+ Recovered#typeBindingLNotBlank;025
+
+
+uses26
+;
+5com.flightapp.request.BookingRequest.primaryPassenger28
+
+primaryPassenger29
+0
+*com.flightapp.request.BookingRequest.seats31
+
+seats32
+	
+Min34
+!
+Recovered#typeBindingLMin;036
+5
+/com.flightapp.request.BookingRequest.passengers38
+
+
+passengers39
+
+Valid41
+#
+Recovered#typeBindingLValid;043
+,
+&com.flightapp.request.PassengerRequest45
+G
+Acom.flightapp.request.BookingRequest#getEmail()Ljava/lang/String;47
+
+method48
+
+getEmail49
+
+
+references50
+H
+Bcom.flightapp.request.BookingRequest#setEmail(Ljava/lang/String;)V52
+
+setEmail53
+R
+Lcom.flightapp.request.BookingRequest#getPrimaryPassenger()Ljava/lang/String;55
+
+getPrimaryPassenger56
+S
+Mcom.flightapp.request.BookingRequest#setPrimaryPassenger(Ljava/lang/String;)V58
+
+setPrimaryPassenger59
+6
+0com.flightapp.request.BookingRequest#getSeats()I61
+
+getSeats62
+7
+1com.flightapp.request.BookingRequest#setSeats(I)V64
+
+setSeats65
+J
+Dcom.flightapp.request.BookingRequest#getPassengers()Ljava/util/List;67
+
+getPassengers68
+K
+Ecom.flightapp.request.BookingRequest#setPassengers(Ljava/util/List;)V70
+
+setPassengers71J
+
+1
+12
+
+
+3
+4Z
+
+5	
+576jí
+A
+37;
+373817 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+39
+A
+27;
+272817 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+29
+
+44
+444522
+A
+54;
+545548 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+56
+A
+30;
+303117 *
+1 (28:5B
+
+
+11
+18
+
+
+13
+32
+A
+51;
+515248 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+53
+A
+57;
+575848 *
+1! !(28:5B
+
+
+11
+12
+
+
+13
+59
+
+42
+424322
+A
+63;
+636448 *
+1) )(28:5B
+
+
+11
+12
+
+
+13
+65
+A
+66;
+666748 *
+1- -(28:5B
+
+
+11
+12
+
+
+13
+68
+;
+86
+8910 *
+1 (:5B
+
+
+11
+12
+
+
+13
+14
+
+33
+333422
+
+24
+242522
+
+40
+404122
+
+20
+202122
+
+35
+353622
+A
+15;
+151617 *
+1	 	(28:5B
+
+
+11
+18
+
+
+13
+19
+A
+46;
+464748 *
+1 (28:5B
+
+
+11
+12
+
+
+13
+49
+A
+60;
+606148 *
+1% %(28:5B
+
+
+11
+12
+
+
+13
+62
+A
+69;
+697048 *
+11 1(28:5B
+
+
+11
+12
+
+
+13
+71rÑ
+
+152023*
+1	 	(
+
+152426*
+1	 	(
+
+272023*
+1 (
+
+272426*
+1 (
+
+303323*
+1 (
+
+303526*
+1 (	
+
+374023*
+1 (
+
+374226*
+1 (
+
+374426*
+1 ("
+
+461550*
+1 (
+
+51826*
+1	 (
+
+51850*
+1	 (
+
+511550*
+1 (
+
+542750*
+1 ( 
+
+57826*
+1"	 "(
+
+57850*
+1"	 "(
+
+572750*
+1" "(
+
+603050*
+1& &(
+
+63826*
+1*	 *(
+
+63850*
+1*	 *(
+
+633050*
+1* *(
+
+664426*
+1- -(!
+
+663750*
+1. .(
+
+694426*
+11$ 1(4
+
+69826*
+12	 2(
+
+69850*
+12	 2(
+
+693750*
+12 2(
