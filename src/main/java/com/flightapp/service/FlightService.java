@@ -18,11 +18,14 @@ import java.time.LocalTime;
 @RequiredArgsConstructor
 public class FlightService {
 
+    // Repository to interact with flights stored in MongoDB.
     private final FlightRepository repo;
+
+    // Used to validate that the airline exists before adding a flight.
     private final AirlineRepository airlineRepo;
 
+    // Adds a new flight after checking the airline code.
     public Mono<Flight> addFlight(AddFlightRequest req) {
-
         return airlineRepo.findByAirlineCode(req.getAirlineCode())
                 .flatMap(airline -> {
 
@@ -43,6 +46,7 @@ public class FlightService {
                 });
     }
 
+    // Searches flights based on source, destination, and date.
     public Flux<Flight> searchFlights(FlightSearchRequest req) {
         return repo.findByFromPlaceAndToPlaceAndFlightDate(
                 req.getFromPlace(),
@@ -51,12 +55,12 @@ public class FlightService {
         );
     }
 
-
+    // Fetches a flight by its ID.
     public Mono<Flight> getFlightById(String id) {
         return repo.findById(id);
     }
 
-
+    // Updates an existing flight.
     public Mono<Flight> updateFlight(String id, AddFlightRequest req) {
         return repo.findById(id)
                 .flatMap(existing -> {
@@ -73,12 +77,12 @@ public class FlightService {
                 });
     }
 
-
+    // Deletes a flight using its ID.
     public Mono<Void> deleteFlight(String id) {
         return repo.deleteById(id);
     }
 
-
+    // Updates seat count after a booking is created.
     public Mono<Void> updateSeatCount(String flightId, int seatsToBook) {
         return repo.findById(flightId)
                 .flatMap(flight -> {
@@ -87,8 +91,9 @@ public class FlightService {
                 })
                 .then();
     }
+
+    // booked and remaining seats...aggregation.
     public Flux<FlightSeatStatsDTO> getFlightSeatStats() {
         return repo.getFlightSeatStats();
     }
-
 }
