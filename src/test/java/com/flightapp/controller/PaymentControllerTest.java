@@ -35,7 +35,7 @@ class PaymentControllerTest {
 
         ResponseEntity<Payment> response = controller.pay("PNR1", req).block();
 
-        assertEquals(201, response.getStatusCodeValue());
+        assertEquals(201, response.getStatusCode().value());
         assertEquals(5000, response.getBody().getAmount());
     }
 
@@ -48,7 +48,7 @@ class PaymentControllerTest {
 
         ResponseEntity<Payment> response = controller.get("33").block();
 
-        assertEquals(200, response.getStatusCodeValue());
+        assertEquals(200, response.getStatusCode().value());
         assertEquals("33", response.getBody().getId());
     }
 
@@ -58,7 +58,7 @@ class PaymentControllerTest {
 
         ResponseEntity<Payment> response = controller.get("BAD").block();
 
-        assertEquals(404, response.getStatusCodeValue());
+        assertEquals(404, response.getStatusCode().value());
     }
 
     @Test
@@ -67,6 +67,6 @@ class PaymentControllerTest {
 
         ResponseEntity<Void> response = controller.delete("10").block();
 
-        assertEquals(204, response.getStatusCodeValue());
+        assertEquals(204, response.getStatusCode().value());
     }
 }
