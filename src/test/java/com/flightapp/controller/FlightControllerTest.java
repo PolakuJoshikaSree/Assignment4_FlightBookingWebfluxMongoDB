@@ -39,7 +39,7 @@ class FlightControllerTest {
 
         ResponseEntity<Flight> response = controller.addFlight(req).block();
 
-        assertEquals(201, response.getStatusCodeValue());
+        assertEquals(201, response.getStatusCode().value());
         assertEquals("AI101", response.getBody().getFlightNumber());
     }
 
@@ -64,7 +64,7 @@ class FlightControllerTest {
 
         ResponseEntity<Flight> response = controller.getFlightById("999").block();
 
-        assertEquals(200, response.getStatusCodeValue());
+        assertEquals(200, response.getStatusCode().value());
         assertEquals("999", response.getBody().getId());
     }
 
@@ -74,6 +74,6 @@ class FlightControllerTest {
 
         ResponseEntity<Flight> response = controller.getFlightById("NOTFOUND").block();
 
-        assertEquals(404, response.getStatusCodeValue());
+        assertEquals(404, response.getStatusCode().value());
     }
 }
