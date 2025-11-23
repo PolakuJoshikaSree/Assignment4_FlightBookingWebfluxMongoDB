@@ -12,10 +12,9 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // Handles validation errors triggered by @Valid annotations in request bodies.
-    // It collects field errors and returns them in a simple key-value format.
+    // Handles validation failures and returns field-level error messages.
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> handleValidation(MethodArgumentNotValidException ex) {
+    public ResponseEntity<Object> handleValidation(MethodArgumentNotValidException ex) {
 
         Map<String, String> errors = new HashMap<>();
 
@@ -28,21 +27,21 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
-    // Handles cases where a requested resource is not found in the database.
+    // Handles cases where a requested resource is not found.
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?> notFound(ResourceNotFoundException ex) {
+    public ResponseEntity<Object> notFound(ResourceNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-    // Handles custom business rules that fail (like seat validation, payment errors, etc.).
+    // Handles your custom validation exceptions.
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<?> customValidation(ValidationException ex) {
+    public ResponseEntity<Object> customValidation(ValidationException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    // Fallback handler for any unexpected or unhandled exception in the application.
+    // A fallback handler for unexpected exceptions.
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> global(Exception ex) {
+    public ResponseEntity<Object> global(Exception ex) {
         return new ResponseEntity<>("Error: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
