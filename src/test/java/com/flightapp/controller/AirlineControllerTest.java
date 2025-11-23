@@ -38,7 +38,7 @@ class AirlineControllerTest {
 
         ResponseEntity<Airline> response = controller.add(req).block();
 
-        assertEquals(201, response.getStatusCodeValue());
+        assertEquals(201, response.getStatusCode().value());
         assertEquals("Indigo", response.getBody().getAirlineName());
     }
 
@@ -62,7 +62,7 @@ class AirlineControllerTest {
 
         ResponseEntity<Airline> response = controller.getByCode("AI").block();
 
-        assertEquals(200, response.getStatusCodeValue());
+        assertEquals(200, response.getStatusCode().value());
         assertEquals("AI", response.getBody().getAirlineCode());
     }
 
@@ -73,6 +73,6 @@ class AirlineControllerTest {
 
         ResponseEntity<Airline> response = controller.getByCode("XX").block();
 
-        assertEquals(404, response.getStatusCodeValue());
+        assertEquals(404, response.getStatusCode().value());
     }
 }
