@@ -33,6 +33,7 @@ class FlightServiceTest {
 
     @Test
     void testAddFlight() {
+        // Preparing a complete AddFlightRequest object.
         AddFlightRequest req = new AddFlightRequest();
         req.setAirlineCode("AI101");
         req.setFlightNumber("AI-10");
@@ -45,33 +46,39 @@ class FlightServiceTest {
         req.setPrice(5000.0);
         req.setBaggageLimitKg(15);
 
+        // Mocking airline verification before saving a flight.
         Airline airline = new Airline();
         airline.setAirlineCode("AI101");
 
         when(airlineRepo.findByAirlineCode("AI101"))
                 .thenReturn(Mono.just(airline));
 
+        // Mock saving of flight.
         when(flightRepo.save(any(Flight.class)))
                 .thenReturn(Mono.just(new Flight()));
 
         Flight result = service.addFlight(req).block();
 
+        // Just checking that something is returned.
         assertNotNull(result);
     }
 
     @Test
     void testSearchFlights() {
+        // Creating a request as the UI would send it.
         FlightSearchRequest req = new FlightSearchRequest();
         req.setFromPlace("Delhi");
         req.setToPlace("Mumbai");
         req.setFlightDate("2025-12-01");
 
+        // Mocking empty flights for that route.
         when(flightRepo.findByFromPlaceAndToPlaceAndFlightDate(
                 "Delhi", "Mumbai", LocalDate.parse("2025-12-01")
         )).thenReturn(Flux.empty());
 
         var result = service.searchFlights(req).collectList().block();
 
+        // Since mocked empty — expecting 0 results.
         assertEquals(0, result.size());
     }
 }

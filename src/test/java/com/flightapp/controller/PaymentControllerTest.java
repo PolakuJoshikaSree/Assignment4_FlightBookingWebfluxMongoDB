@@ -25,9 +25,11 @@ class PaymentControllerTest {
 
     @Test
     void testPay() {
+        // Creating a payment request like real user input.
         PaymentRequest req = new PaymentRequest();
         req.setAmount(5000);
 
+        // Mock saved payment.
         Payment p = new Payment();
         p.setAmount(5000);
 
@@ -35,6 +37,7 @@ class PaymentControllerTest {
 
         ResponseEntity<Payment> response = controller.pay("PNR1", req).block();
 
+        // Expecting 201 created + correct amount.
         assertEquals(201, response.getStatusCode().value());
         assertEquals(5000, response.getBody().getAmount());
     }
@@ -48,6 +51,7 @@ class PaymentControllerTest {
 
         ResponseEntity<Payment> response = controller.get("33").block();
 
+        // If payment exists -> 200 OK.
         assertEquals(200, response.getStatusCode().value());
         assertEquals("33", response.getBody().getId());
     }
@@ -58,6 +62,7 @@ class PaymentControllerTest {
 
         ResponseEntity<Payment> response = controller.get("BAD").block();
 
+        // Not found case -> 404 expected.
         assertEquals(404, response.getStatusCode().value());
     }
 
@@ -67,6 +72,7 @@ class PaymentControllerTest {
 
         ResponseEntity<Void> response = controller.delete("10").block();
 
+        // Delete should return 204.
         assertEquals(204, response.getStatusCode().value());
     }
 }

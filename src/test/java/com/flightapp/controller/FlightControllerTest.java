@@ -29,9 +29,11 @@ class FlightControllerTest {
 
     @Test
     void testAddFlight() {
+        // Preparing add request input.
         AddFlightRequest req = new AddFlightRequest();
         req.setFlightNumber("AI101");
 
+        // Fake saved flight.
         Flight saved = new Flight();
         saved.setFlightNumber("AI101");
 
@@ -39,12 +41,14 @@ class FlightControllerTest {
 
         ResponseEntity<Flight> response = controller.addFlight(req).block();
 
+        // Validating the saved flight response.
         assertEquals(201, response.getStatusCode().value());
         assertEquals("AI101", response.getBody().getFlightNumber());
     }
 
     @Test
     void testSearchFlights() {
+        // Mocking two flights as if DB returned them.
         when(service.searchFlights(any()))
                 .thenReturn(Flux.just(new Flight(), new Flight()));
 
