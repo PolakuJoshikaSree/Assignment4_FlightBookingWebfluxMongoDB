@@ -12,7 +12,8 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // validation errors
+    // Handles validation errors triggered by @Valid annotations in request bodies.
+    // It collects field errors and returns them in a simple key-value format.
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleValidation(MethodArgumentNotValidException ex) {
 
@@ -27,19 +28,19 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
-    // not found
+    // Handles cases where a requested resource is not found in the database.
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> notFound(ResourceNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-    // business validation
+    // Handles custom business rules that fail (like seat validation, payment errors, etc.).
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity<?> customValidation(ValidationException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    // generic
+    // Fallback handler for any unexpected or unhandled exception in the application.
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> global(Exception ex) {
         return new ResponseEntity<>("Error: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
