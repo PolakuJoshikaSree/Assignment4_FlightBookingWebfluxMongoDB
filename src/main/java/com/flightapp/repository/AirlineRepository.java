@@ -9,9 +9,10 @@ import reactor.core.publisher.Mono;
 
 public interface AirlineRepository extends ReactiveMongoRepository<Airline, String> {
 
+    // Finds an airline using its unique code .
     Mono<Airline> findByAirlineCode(String airlineCode);
 
-    // Count flights for each airline
+    // Aggregation: counts how many flights belong to each airline.
     @Aggregation(pipeline = {
             "{ $lookup: { from: 'flights', localField: 'airlineCode', foreignField: 'airlineCode', as: 'flights' } }",
             "{ $project: { airlineCode: 1, airlineName: 1, totalFlights: { $size: '$flights' } } }"
