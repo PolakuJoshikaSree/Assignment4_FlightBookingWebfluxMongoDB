@@ -6,6 +6,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FlightSeatStatsDTO {
+
+    // Used for showing total, booked, and available seats for flights.
     private String flightNumber;
     private String fromPlace;
     private String toPlace;
