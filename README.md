@@ -5,7 +5,7 @@ This Flight Booking System built using **Spring WebFlux + Reactive MongoDB** pro
 
 ##  Core Functionalities
 
-### 🛫 **Airline Management**
+###  **Airline Management**
 - Add new airlines  
 - Fetch airline by code  
 - View all airlines  
