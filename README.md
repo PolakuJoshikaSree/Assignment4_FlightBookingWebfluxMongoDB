@@ -1,9 +1,9 @@
 
-# ✨ FLIGHT BOOKING SYSTEM
+#  FLIGHT BOOKING SYSTEM
 
 This Flight Booking System built using **Spring WebFlux + Reactive MongoDB** provides a fully reactive, non-blocking architecture with rich functionality:
 
-## 🚀 Core Functionalities
+##  Core Functionalities
 
 ### 🛫 **Airline Management**
 - Add new airlines  
@@ -11,24 +11,24 @@ This Flight Booking System built using **Spring WebFlux + Reactive MongoDB** pro
 - View all airlines  
 - Delete airline by ID  
 
-### ✈️ **Flight Management**
+###  **Flight Management**
 - Add new flights  
 - Search flights by **fromPlace + toPlace + flightDate**  
 - View flight by ID  
 - Supports real-time seat availability  
 
-### 🪑 **Seat Management**
+###  **Seat Management**
 - Seat distribution per flight  
 - Seat status: `AVAILABLE`, `BOOKED`, `BLOCKED`  
 - Seat-level verification before booking
 
-### 🧾 **Booking Management**
+###  **Booking Management**
 - Create booking for a flight  
 - Retrieve booking by PNR  
 - Delete or cancel booking  
 - Includes passenger details for each booking  
 
-### 💳 **Payment Processing**
+###  **Payment Processing**
 - Pay using PNR  
 - Fetch payment details by payment ID  
 - Delete payment  
@@ -36,7 +36,7 @@ This Flight Booking System built using **Spring WebFlux + Reactive MongoDB** pro
 
 ---
 
-## 📊 Aggregation Pipelines (MongoDB)
+##  Aggregation Pipelines (MongoDB)
 The project demonstrates real-world analytics using MongoDB pipelines:
 
 - ✔️ **Total Revenue per Flight**  
@@ -49,7 +49,7 @@ These pipelines provide insights for airline operations and reporting dashboards
 
 ---
 
-## 🧱 System Characteristics
+##  System Characteristics
 
 - Fully **Reactive** (WebFlux + Reactor)  
 - **Non-blocking I/O** for maximum performance  
@@ -62,7 +62,7 @@ These pipelines provide insights for airline operations and reporting dashboards
 
 ---
 
-## 🖼️ Swagger UI Previews
+##  Swagger UI Previews
 
 ### **Swagger UI – Main View**
 ![Swagger UI Screenshot 1](./SwaggerUI_Image1.jpeg)
@@ -74,7 +74,7 @@ These pipelines provide insights for airline operations and reporting dashboards
 
 ---
 
-## 🧱 UML Diagram
+##  UML Diagram
 
 ### **Complete Class Diagram**
 ![UML Diagram (Webflux-Mongo)](./UMLDiagram-WebfluxMongo.jpeg)
